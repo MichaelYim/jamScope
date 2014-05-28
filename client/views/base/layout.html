@@ -1,0 +1,19 @@
+<template name="layout">
+  <body>
+    {{> header}}
+    <main class="main container">
+      {{> yield}}
+    </main>
+
+    <footer>
+      <div class="container">
+        <p class="text-muted pull-right">
+          &copy; 2014 by <a href="#">jamScope</a> &bull;
+          <a href="#">Privacy Policy</a> &bull;
+          <a href="#">Terms of Use</a>
+        </p>
+      </div>
+    </footer>
+
+  </body>
+</template>
