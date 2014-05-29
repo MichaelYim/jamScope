@@ -1,136 +1,4 @@
-Skip to content
 
-This repository
-Explore
-Gist
-Blog
-Help
-Michael Yim (creator) MichaelYim
-
-
-1  Watch
- Star 0
-Fork 1 PUBLIC dotZak/Coffeescope
- branch: master  Coffeescope / client / stylesheets / style.css
-Crash Knudsen dotZak on May 14 initial commit. Chapters 1 to 11 of Discover Meteor
-1 contributor
- file  117 lines (109 sloc)  2.777 kb  Open EditRawBlameHistory Delete
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
 .grid-block, .main, .post, .comments li, .comment-form {
   background: #fff;
   -webkit-border-radius: 3px;
@@ -231,6 +99,14 @@ body {
   line-height: 20px;
   color: #bbb;
   white-space: nowrap; }
+
+#central{
+  padding-top:70px;
+  height: 700px;
+  width: 900px;
+
+
+}
 
 .load-more {
   display: block;
