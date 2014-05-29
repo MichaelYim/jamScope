@@ -1,7 +1,8 @@
 {
   "packages": {
     "iron-router": {},
+    "googlemaps": {},
     "bootstrap-3": {},
-    "googlemaps": {}
+    "accounts-ui-bootstrap-3": {}
   }
 }

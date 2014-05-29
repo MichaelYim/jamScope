@@ -97,14 +97,19 @@ body {
   padding: 3px 20px;
   clear: both;
   line-height: 20px;
-  color: #bbb;
+  color: #white;
   white-space: nowrap; }
 
 #central{
   padding-top:70px;
   height: 700px;
   width: 900px;
+}
 
+.btn-info{
+  background-color:#3b5998;
+  border-color:#8b9dc3;
+}
 
 }
 
