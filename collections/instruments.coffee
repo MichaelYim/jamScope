@@ -1,0 +1,1 @@
+@Instruments = new Meteor.Collection 'instruments'

@@ -2,7 +2,7 @@ if Meteor.users.find().count() is 0
 
   Meteor.users.insert
     _id: "xCBbmj7B3gH6AgKMv",
-    createdAt: ISODate("2014-05-29T09:16:29.938Z"),
+    createdAt: "2014-05-29T09:16:29.938Z",
     profile:
       name: "Joe Teo"
     services:
@@ -20,7 +20,7 @@ if Meteor.users.find().count() is 0
 
   Meteor.users.insert
     _id: "XSw6XDmiTggTfwLKw",
-    createdAt: ISODate("2014-05-29T09:19:05.561Z"),
+    createdAt: "2014-05-29T09:19:05.561Z",
     profile:
       name: "Zak Knudsen"
     services:
@@ -35,3 +35,72 @@ if Meteor.users.find().count() is 0
         link: "https://www.facebook.com/app_scoped_user_id/10154203030305182/",
         gender: "male",
         locale: "en_US"
+
+  Meteor.users.insert
+    _id: "R6kpfKF8eP3gu7Jzj",
+    createdAt: "2014-05-29T10:03:06.022Z",
+    profile:
+      name: "Paul Ld"
+    services:
+      facebook:
+        accessToken: "CAAK55NBjrkkBAPPZBCJjTarheM1Y9IgUg6wENZCNUl83SZCarA4BZCmkfhkdlIdUi2GWr0f7dkmWqNZB6Mvd8OVABja2SsOeKPFu72iG6YMwNNQ6MF7q4R5LE6nHbNBB4dlYaSS5Pssh1JFaDZAGEFPGrT04slxkgqn1fBhFJ9UuVxQBFypb6c",
+        expiresAt: 1406541784908,
+        id: "10152924912184899",
+        email: "paul.lugagnedelpon@gmail.com",
+        name: "Paul Ld",
+        first_name: "Paul",
+        last_name: "Ld",
+        link: "https://www.facebook.com/app_scoped_user_id/10152924912184899/",
+        gender: "male",
+        locale: "en_GB"
+
+if Instruments.find().count() is 0
+
+  Instruments.insert
+    type: "piano",
+    owner: "xCBbmj7B3gH6AgKMv",
+    level: "1"
+
+  Instruments.insert
+    type: "vocals",
+    owner: "xCBbmj7B3gH6AgKMv",
+    level: "2.5"
+
+  Instruments.insert
+    type: "banjo",
+    owner: "xCBbmj7B3gH6AgKMv",
+    level: "4"
+
+  Instruments.insert
+    type: "rap",
+    owner: "XSw6XDmiTggTfwLKw",
+    level: "2"
+
+  Instruments.insert
+    type: "triangle",
+    owner: "XSw6XDmiTggTfwLKw",
+    level: "5"
+
+  Instruments.insert
+    type: "guitar",
+    owner: "R6kpfKF8eP3gu7Jzj",
+    level: "4"
+
+  Instruments.insert
+    type: "ukulele",
+    owner: "R6kpfKF8eP3gu7Jzj",
+    level: "4.5"
+
+  Instruments.insert
+    type: "vocals",
+    owner: "R6kpfKF8eP3gu7Jzj",
+    level: "1"
+
+
+
+
+
+
+
+
+

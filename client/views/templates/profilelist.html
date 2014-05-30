@@ -1,0 +1,18 @@
+<template name="profilelist">
+  <div class="container search-outputs pull-center">
+    {{#each users}}
+      <div class="profile-list-box">
+        <ul class="list-ul">
+          <li class="">{{profile.name}}</li>
+            <ul class="list-ul">
+            {{#each getInstruments}}
+              <li class="list-instruments">{{type}}: {{level}}</li>
+          {{/each}}
+            </ul>
+        </ul>
+      </div>
+    {{/each}}
+
+  </div>
+
+</template>
