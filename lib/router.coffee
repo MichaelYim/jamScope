@@ -6,3 +6,5 @@ Router.map () ->
 
 Router.map () ->
   @route 'search', path: 'musicians'
+
+

@@ -1,18 +1,25 @@
 <template name="profilelist">
   <div class="container search-outputs pull-center">
-    {{#each users}}
+<!--     {{#each users}}
       <div class="profile-list-box">
         <ul class="list-ul">
           <li class="">{{profile.name}}</li>
             <ul class="list-ul">
             {{#each getInstruments}}
               <li class="list-instruments">{{type}}: {{level}}</li>
-          {{/each}}
+            {{/each}}
             </ul>
         </ul>
       </div>
-    {{/each}}
+    {{/each}} -->
+
+    <div>
+        {{#each filteredInstrument}}
+          <ul>
+            <li>{{type}}</li>
+          </ul>
+        {{/each}}
+    </div>
 
   </div>
-
 </template>
