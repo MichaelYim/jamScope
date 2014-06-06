@@ -96,7 +96,10 @@ if Instruments.find().count() is 0
     owner: "R6kpfKF8eP3gu7Jzj",
     level: "1"
 
-
+  Instruments.insert
+    type: "piano",
+    owner: "R6kpfKF8eP3gu7Jzj",
+    level: "4"
 
 
 

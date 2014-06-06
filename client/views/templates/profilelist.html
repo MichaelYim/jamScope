@@ -1,6 +1,6 @@
 <template name="profilelist">
   <div class="container search-outputs pull-center">
-<!--     {{#each users}}
+    {{#each users}}
       <div class="profile-list-box">
         <ul class="list-ul">
           <li class="">{{profile.name}}</li>
@@ -11,15 +11,22 @@
             </ul>
         </ul>
       </div>
-    {{/each}} -->
+    {{/each}}
 
-    <div>
+      {{#each other}}
+        <ul>
+          <li>{{profile.name}}</li>
+        </ul>
+      {{/each}}
+    <!-- <div>
         {{#each filteredInstrument}}
           <ul>
             <li>{{type}}</li>
+            <li>{{owner}}</li>
+
           </ul>
         {{/each}}
-    </div>
+    </div> -->
 
   </div>
 </template>
