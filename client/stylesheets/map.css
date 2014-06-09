@@ -3,9 +3,11 @@ html {
  height: 100% }
 
 body {
-  height: 100%; margin: 0; padding: 0
+  height: 100%; margin: 0; padding: 0;
+  background-image: url(http://www.theolympiastudio.com/wp-content/uploads/2014/03/guitar-slider.jpg);
+
 }
-#map-canvas { height: 500px ; width: 800px;
+#map-canvas { height: 400px ; width: 650px;
   margin-left:auto;
   margin-right:auto; }
 
@@ -25,5 +27,10 @@ body {
 
 .list-ul{
   list-style-type:none;
+
+}
+
+#logo{
+  color:white;
 
 }

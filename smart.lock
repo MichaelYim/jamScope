@@ -4,10 +4,11 @@
     "basePackages": {
       "iron-router": {},
       "googlemaps": {},
-      "bootstrap-3": {},
       "accounts-ui-bootstrap-3": {},
       "select2": {},
-      "select2-bootstrap3-css": {}
+      "select2-bootstrap3-css": {},
+      "font-awesome-4-less": {},
+      "less-bootstrap-3": {}
     },
     "packages": {
       "iron-router": {
@@ -19,11 +20,6 @@
         "git": "https://github.com/drewjw81/meteor-googlemaps.git",
         "tag": "v0.0.2",
         "commit": "da8785c82cfd7de0111f898ef10728e7ed24e361"
-      },
-      "bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v3.1.1-1",
-        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
@@ -39,6 +35,16 @@
         "git": "https://github.com/esperadomedia/meteor-select2-bootstrap3-css.git",
         "tag": "v0.0.5",
         "commit": "ac0c74d4b110c4c5149f17bb33c3e9bb4f77eb88"
+      },
+      "font-awesome-4-less": {
+        "git": "https://github.com/svub/fontawesome4-less.git",
+        "tag": "v4.3.7",
+        "commit": "21f60350cd238fb7053132f42409a3090f76939e"
+      },
+      "less-bootstrap-3": {
+        "git": "https://github.com/DerMambo/less-bootstrap-3.git",
+        "tag": "v0.0.1",
+        "commit": "1321ac0ebc809bc354186b96f4c28b7042e38507"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
