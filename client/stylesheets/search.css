@@ -2,3 +2,17 @@
  width: 100%;
 
 }
+
+.well {
+  padding: 13px;
+  margin-bottom: 14px;
+
+}
+
+.search-outputs {
+  width: 500px;
+}
+
+#actual-search-button{
+  margin-right: 13px;
+}

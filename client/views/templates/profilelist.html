@@ -1,9 +1,10 @@
 <template name="profilelist">
   <div class="container search-outputs pull-center">
     {{#each users}}
-      <div class="profile-list-box">
+    <!-- profile-list-box -->
+      <div class="well">
         <ul class="list-ul">
-          <li class="">{{profile.name}}</li>
+          <li class=""><h4>{{profile.name}}</h4></li>
             <ul class="list-ul">
             {{#each getInstruments}}
               <li class="list-instruments">{{type}}: {{level}}</li>
@@ -12,21 +13,5 @@
         </ul>
       </div>
     {{/each}}
-
-      {{#each other}}
-        <ul>
-          <li>{{profile.name}}</li>
-        </ul>
-      {{/each}}
-    <!-- <div>
-        {{#each filteredInstrument}}
-          <ul>
-            <li>{{type}}</li>
-            <li>{{owner}}</li>
-
-          </ul>
-        {{/each}}
-    </div> -->
-
   </div>
 </template>
