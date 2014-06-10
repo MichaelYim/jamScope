@@ -2,9 +2,18 @@ Router.configure
   layoutTemplate: 'layout'
 
 Router.map () ->
-  @route 'home', path: '/'
+  @route 'home',
+    path: '/'
+    waitOn: ->
+      Meteor.subscribe('users')
+      Meteor.subscribe('instruments')
 
-  @route 'search', path: 'musicians'
+
+  @route 'search',
+    path: 'musicians'
+    waitOn: ->
+      Meteor.subscribe('users')
+      Meteor.subscribe('instruments')
 
   @route 'notFound',
     path: '*'

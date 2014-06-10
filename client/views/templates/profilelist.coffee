@@ -1,4 +1,5 @@
 Template.profilelist.helpers
+
   users: ->
     if Session.get("selectedInstrument") == "all"
       Meteor.users.find().fetch()
