@@ -4,6 +4,18 @@ Template.map.rendered = ->
     key: gmapskey #optional
     # language: "de" #optional
   , ->
+
+    placeMarker = (position, map) ->
+      marker = new google.maps.Marker(
+        position: position
+        map: map
+      )
+
+
+      infowindow = new google.maps.InfoWindow(content : "{{> mapinfowindow}}")
+      google.maps.event.addListener marker, "click", ->
+        infowindow.open map, marker
+
     myLatlng = new google.maps.LatLng(22.26, 114.19)
     mapOptions =
       zoom: 13
@@ -12,30 +24,17 @@ Template.map.rendered = ->
 
     map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
 
-    #add infoWindow
 
-    google.maps.event.addListener map, "click", (e, result) ->
+
+
+    google.maps.event.addListener map, "click", (e) ->
       placeMarker e.latLng, map
-      console.log result
-
-    # google.maps.event.addListener marker, "click", ->
-    #   infowindow.open map, marker
 
 
 
 
-  placeMarker = (position, map) ->
-    marker = new google.maps.Marker(
-      position: position
-      map: map
-      )
-    attachContent(marker)
 
-    attachContent = (marker) ->
-      content = "content"
-      infowindow = newgooglemaps.InfoWindow(content: marker)
-      google.maps.event.addListener marker, "click", ->
-      infowindow.open marker.get("map"), marker
+
     # contentString = '<h1>hi</div>'
     # infowindow = new google.maps.InfoWindow(content: contentString)
 

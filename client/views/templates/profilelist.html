@@ -2,15 +2,21 @@
   <div class="container pull-center" id="search-outputs">
     {{#each users}}
     <!-- profile-list-box -->
-      <div class="well">
-        <ul class="list-ul">
-          <li class=""><h4 class="brand-primary">{{profile.name}}</h4></li>
-            <ul class="list-ul">
-            {{#each getInstruments}}
-              <li class="list-instruments">{{type}}: {{level}}</li>
-            {{/each}}
-            </ul>
-        </ul>
+      <div class="well row">
+        <div class="col-md-3">
+          <img class ="listpic" src={{profile.picture}}>
+        </div>
+        <div class="col-md-9">
+          <ul class="list-ul">
+              <li class=""><h4 class="brand-primary">{{profile.name}}</h4></li>
+
+              <ul class="list-ul">
+              {{#each getInstruments}}
+                <li class="list-instruments">{{type}}: {{level}}</li>
+              {{/each}}
+              </ul>
+          </ul>
+        </div>
       </div>
     {{/each}}
   </div>
