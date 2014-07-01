@@ -1415,9 +1415,6 @@ if InstrumentList.find().count() is 0
     name: "oud"
 
   InstrumentList.insert
-    name: "piano"
-
-  InstrumentList.insert
     name: "piccolo violino"
 
   InstrumentList.insert

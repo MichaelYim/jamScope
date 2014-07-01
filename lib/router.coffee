@@ -1,5 +1,6 @@
 Router.configure
   layoutTemplate: 'layout'
+  loadingTemplate: 'loading'
 
 Router.map () ->
   @route 'home',
@@ -20,9 +21,11 @@ Router.map () ->
   @route 'edit_form',
     path: 'edit_profile'
     waitOn: ->
-      Meteor.subscribe('users')
+      Meteor.subscribe('user', Meteor.userId)
       Meteor.subscribe('instruments')
       Meteor.subscribe('instrumentList')
+    data: ->
+      Meteor.user()
 
   @route 'notFound',
     path: '*'
@@ -31,5 +34,6 @@ Router.map () ->
       @response.statusCode = 404
       @response.end Handlebars.templates['404']()
 
+Router.onBeforeAction("loading")
 
 
