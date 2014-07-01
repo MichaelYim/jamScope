@@ -1,0 +1,98 @@
+<template name="edit_form">
+  <div class="pull-center container" id="fadeblack-update-profile">
+    <legend><h3 class="text-center title-blue"> Update Profile </h3></legend>
+    <form class="form-horizontal">
+    <fieldset>
+
+    <!-- name input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="name">name</label>
+      <div class="col-md-4">
+      <input id="name" name="name" value="{{currentUser.profile.name}}" type="text" placeholder="" class="form-control input-md" required="">
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="email">email</label>
+      <div class="col-md-4">
+      <input name="email" value="{{currentUser.profile.email}}" type="text" placeholder="( optional )" class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- about me input -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="about-me">about me</label>
+      <div class="col-md-4">
+        <textarea class="form-control input-md" name="aboutMe" placeholder="( tell us about your journey as a musician! )">{{currentUser.profile.aboutMe}}</textarea>
+      </div>
+    </div>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="">area</label>
+      <div class="col-md-4">
+        <select id="" name="" class="form-control">
+          <option value="1">Option one</option>
+          <option value="2">Option two</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Button Drop Down -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="addinstruments">add instruments</label>
+      <div class="col-md-4">
+
+        <select multiple=""  name="e9" id="e9" class="populate select2-offscreen form-control" tabindex="-1">
+
+          {{#each instrumentSelection}}
+            <option val={{_id}}>{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <h1>{{instrumentsUsed}}</h1>
+    <h1 class="text-center">hi</h1>
+    <h1>{{currentUser.profile.instrumentsPlayed}}</h1>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="">Ukulele</label>
+      <div class="col-md-4">
+        <select id="" name="" class="form-control">
+          <option value="1">beginner</option>
+          <option value="2">casual</option>
+          <option value="3">advanced</option>
+          <option value="4">professional</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="">Guitar</label>
+      <div class="col-md-4">
+        <select id="" name="" class="form-control">
+          <option value="1">beginner</option>
+          <option value="2">casual</option>
+          <option value="3">advanced</option>
+          <option value="4">professional</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="edit_submit"></label>
+      <div class="col-md-4">
+        <button id="edit_submit" name="edit_submit" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+
+    </fieldset>
+    </form>
+
+  </div>
+</template>

@@ -7,6 +7,7 @@ Router.map () ->
     waitOn: ->
       Meteor.subscribe('users')
       Meteor.subscribe('instruments')
+      Meteor.subscribe('instrumentList')
 
 
   @route 'search',
@@ -14,12 +15,14 @@ Router.map () ->
     waitOn: ->
       Meteor.subscribe('users')
       Meteor.subscribe('instruments')
+      Meteor.subscribe('instrumentList')
 
-  @route 'picture',
-    path: 'picture'
+  @route 'edit_form',
+    path: 'edit_profile'
     waitOn: ->
       Meteor.subscribe('users')
       Meteor.subscribe('instruments')
+      Meteor.subscribe('instrumentList')
 
   @route 'notFound',
     path: '*'

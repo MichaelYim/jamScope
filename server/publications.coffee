@@ -3,3 +3,7 @@ Meteor.publish "users", ->
 
 Meteor.publish "instruments", ->
   Instruments.find()
+
+Meteor.publish "instrumentList", ->
+  InstrumentList.find()
+

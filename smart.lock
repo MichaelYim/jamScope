@@ -7,8 +7,7 @@
       "accounts-ui-bootstrap-3": {},
       "select2": {},
       "select2-bootstrap3-css": {},
-      "font-awesome-4-less": {},
-      "less-bootstrap-3": {}
+      "bootstrap-3": {}
     },
     "packages": {
       "iron-router": {
@@ -36,15 +35,10 @@
         "tag": "v0.0.5",
         "commit": "ac0c74d4b110c4c5149f17bb33c3e9bb4f77eb88"
       },
-      "font-awesome-4-less": {
-        "git": "https://github.com/svub/fontawesome4-less.git",
-        "tag": "v4.3.7",
-        "commit": "21f60350cd238fb7053132f42409a3090f76939e"
-      },
-      "less-bootstrap-3": {
-        "git": "https://github.com/DerMambo/less-bootstrap-3.git",
-        "tag": "v0.0.1",
-        "commit": "1321ac0ebc809bc354186b96f4c28b7042e38507"
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v3.1.1-1",
+        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
