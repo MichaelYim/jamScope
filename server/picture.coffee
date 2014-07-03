@@ -6,5 +6,8 @@ Accounts.onCreateUser (options, user) ->
 
     options.profile.aboutMe = null
     options.profile.email = null
+    options.instrumentsPlayed = null
+    options.instrumentsPlayedTemporary = null
+
   user
 

@@ -29,7 +29,9 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          {{#if currentUser}}
           <li><a href="{{pathFor 'edit_form'}}">Edit Profile</a></li>
+          {{/if}}
             {{> loginButtons }}
         </ul>
       </div>

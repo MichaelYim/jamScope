@@ -11,3 +11,6 @@ Meteor.publish "instruments", ->
 Meteor.publish "instrumentList", ->
   InstrumentList.find()
 
+Meteor.methods deleteInstrumentsInCollection: ->
+  Instruments.remove({owner: Meteor.userId()})
+

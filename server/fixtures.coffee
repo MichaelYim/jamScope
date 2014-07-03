@@ -137,9 +137,6 @@ if InstrumentList.find().count() is 0
     name: "baboula"
 
   InstrumentList.insert
-    name: "balaban"
-
-  InstrumentList.insert
     name: "balsi"
 
   InstrumentList.insert

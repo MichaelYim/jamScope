@@ -41,6 +41,7 @@
     </div>
 
     <!-- Button Drop Down -->
+    <br>
     <div class="form-group">
       <label class="col-md-4 control-label" for="addinstruments">add instruments</label>
       <div class="col-md-4">
@@ -54,16 +55,18 @@
       </div>
     </div>
 
-    {{#each dummypop}}
+    {{#each addIndex}}
     <div class="form-group">
-      <label class="col-md-4 control-label" for="">{{this}}</label>
-      <div class="col-md-4">
-        <select id="" name="" class="form-control">
-          <option value="1">beginner</option>
-          <option value="2">casual</option>
-          <option value="3">advanced</option>
-          <option value="4">professional</option>
-        </select>
+      <div class="col-md-offset-3 col-md-6">
+        <label class="title-blue col-md-4 control-label" for="">{{value}}</label>
+        <div class="col-md-5">
+          <select id="" name="{{index}}" class="form-control">
+            <option value="1">1: beginner</option>
+            <option value="2">2: casual</option>
+            <option value="3">3: advanced</option>
+            <option value="4">4: professional</option>
+          </select>
+        </div>
       </div>
     </div>
     {{/each}}
