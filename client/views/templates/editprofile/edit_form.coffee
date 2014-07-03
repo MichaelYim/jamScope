@@ -77,18 +77,22 @@ Template.edit_form.events "submit form": (e) ->
     console.log(response)
 
 
+  if $("#e9").val() == null
+      updateList = []
+  else
+    updateList = $("#e9").val().sort()
+    for i in [0...updateList.length]
+      newName =  updateList[i]
+      newLevel = $target.find("[name=#{[i]}]").val()
+      newTypeId = InstrumentList.findOne({name:newName})._id
+      Instruments.insert({
+        type: newName,
+        typeId: newTypeId,
+        owner: current,
+        level: newLevel,
+      })
 
-  updateList = $("#e9").val().sort()
-  for i in [0...updateList.length]
-    newName =  updateList[i]
-    newLevel = $target.find("[name=#{[i]}]").val()
-    newTypeId = InstrumentList.findOne({name:"conga"})._id
-    Instruments.insert({
-      type: newName,
-      typeId: newTypeId,
-      owner: current,
-      level: newLevel,
-    })
+
 
 
 
