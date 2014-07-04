@@ -1,5 +1,18 @@
 .modal-pic{
-  height: 10%;
+
   width: auto;
+
+}
+
+.crater-alert-box{
+  margin-left:auto;
+  margin-right:auto;
+  padding:30px;
+  width: 700px;
+  /*min-width:350px;*/
+  height:600px;
+
+
+
 
 }
