@@ -6,24 +6,28 @@ Router.map () ->
   @route 'home',
     path: '/'
     waitOn: ->
-      Meteor.subscribe('users')
-      Meteor.subscribe('instruments')
-      Meteor.subscribe('instrumentList')
-
-
+      [
+        Meteor.subscribe('users')
+        Meteor.subscribe('instruments')
+        Meteor.subscribe('instrumentList')
+      ]
   @route 'search',
     path: 'musicians'
     waitOn: ->
-      Meteor.subscribe('users')
-      Meteor.subscribe('instruments')
-      Meteor.subscribe('instrumentList')
-
+      [
+        Meteor.subscribe('users')
+        Meteor.subscribe('instruments')
+        Meteor.subscribe('instrumentList')
+      ]
   @route 'edit_form',
     path: 'edit_profile'
     waitOn: ->
-      Meteor.subscribe('user', Meteor.userId)
-      Meteor.subscribe('instruments')
-      Meteor.subscribe('instrumentList')
+      [
+      # Meteor.subscribe('user', Meteor.userId)
+      # Meteor.subscribe('users')
+        Meteor.subscribe('instruments')
+        Meteor.subscribe('instrumentList')
+      ]
     data: ->
       Meteor.user()
 
@@ -31,9 +35,10 @@ Router.map () ->
     path: '*'
     where: 'server'
     action: ->
-      @response.statusCode = 404
-      @response.end Handlebars.templates['404']()
-
+      [
+        @response.statusCode = 404
+        @response.end Handlebars.templates['404']()
+      ]
 Router.onBeforeAction("loading")
 
 

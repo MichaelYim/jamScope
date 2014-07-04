@@ -7,6 +7,8 @@ Accounts.onCreateUser (options, user) ->
     options.profile.email = null
     options.profile.instrumentsPlayed = []
     options.profile.instrumentsPlayedTemporary = []
+    options.profile.lat = null
+    options.profile.long = null
 
   user
 

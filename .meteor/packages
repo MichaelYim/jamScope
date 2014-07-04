@@ -10,7 +10,8 @@ coffeescript
 googlemaps
 accounts-facebook
 accounts-password
-accounts-ui-bootstrap-3
 select2
 select2-bootstrap3-css
 bootstrap-3
+accounts-ui-bootstrap-3
+crater-modals
