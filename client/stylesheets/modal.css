@@ -7,12 +7,29 @@
 .crater-alert-box{
   margin-left:auto;
   margin-right:auto;
-  padding:30px;
+  padding:20px;
   width: 700px;
   /*min-width:350px;*/
-  height:600px;
+  min-height:600px;
+
+}
+
+.profilePanel {
+  margin-bottom:10px;
+}
 
 
+div .videoList {
+  margin-left:14px;
 
+}
+
+div .videoList iframe{
+  margin-bottom: 8px;
+
+}
+
+.label-info {
+  font-size:90%;
 
 }
