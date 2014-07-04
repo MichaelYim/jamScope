@@ -10,3 +10,25 @@ Template.profilelist.helpers
 
   getInstruments: ->
     Instruments.find({owner:"#{this._id}"}).fetch()
+
+Template.profilelist.events "click .profileListUnit": (e) ->
+  thisData = Meteor.users.findOne(e.currentTarget.id)
+
+  Crater.overlay "profilepop",
+    data:
+      thisData
+
+
+
+  # console.log $("#e9").val()
+
+  # current = Meteor.userId()
+  # updateTemporary =
+  #   if $("#e9").val() == null
+  #     "profile.instrumentsPlayedTemporary":[]
+  #   else
+  #     "profile.instrumentsPlayedTemporary":$("#e9").val().sort()
+
+
+  # Meteor.users.update current,
+  #   $set:updateTemporary
