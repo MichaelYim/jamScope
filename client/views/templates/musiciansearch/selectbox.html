@@ -1,21 +1,10 @@
 <template name="selectbox">
   <div class="col-md-4 dropbar form-group" id="instrument-dropdown">
-      <select id="e1">
-        <option selected="selected" value="all">all</option>
-          {{#each instrumentSelection}}
-            <option val={{_id}}>{{name}}</option>
-          {{/each}}
-
-
-<!-- <option value="banjo">banjo</option>
-        <option value="guitar">guitar</option>
-        <option value="ukulele">ukulele</option>
-        <option value="vocals">vocals</option>
-        <option value="piano">piano</option>
-        <option value="violin">violin</option>
-        <option value="viola">viola</option>
-        <option value="cello">cello</option>
-        <option value="rap">rap</option> -->
-      </select>
+    <select id="e1">
+      <option selected="selected" value="all">all</option>
+        {{#each instrumentSelection}}
+          <option val={{_id}}>{{name}}</option>
+        {{/each}}
+    </select>
   </div>
 </template>

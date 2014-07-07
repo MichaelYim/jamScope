@@ -16,7 +16,6 @@ Template.edit_form.rendered = ->
 
 
 Template.edit_form.helpers
-
   instrumentSelection: ->
     InstrumentList.find().fetch()
 
