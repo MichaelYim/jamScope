@@ -19,12 +19,12 @@ Router.map () ->
         Meteor.subscribe('instruments')
         Meteor.subscribe('instrumentList')
       ]
+
+
   @route 'edit_form',
     path: 'edit_profile'
     waitOn: ->
       [
-      # Meteor.subscribe('user', Meteor.userId)
-      # Meteor.subscribe('users')
         Meteor.subscribe('instruments')
         Meteor.subscribe('instrumentList')
       ]

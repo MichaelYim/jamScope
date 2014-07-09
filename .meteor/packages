@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-insecure
 iron-router
 coffeescript
 googlemaps
@@ -15,3 +14,4 @@ select2-bootstrap3-css
 bootstrap-3
 accounts-ui-bootstrap-3
 crater-modals
+fast-render

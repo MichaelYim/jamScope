@@ -1,0 +1,71 @@
+<template name = "profilepop">
+  <div class="container row crater-alert-box">
+  <div class="panel panel-default profilePanel">
+    <div class="panel-body row">
+      <div class="col-sm-4 text-center">
+        <img alt="" class="center-block img-circle img-responsive" src="{{profile.picture}}">
+        <ul class="list-inline ratings text-center" title="Ratings">
+          <li>
+            <a href="#"><span class="fa fa-star fa-lg"></span></a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-star fa-lg"></span></a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-star fa-lg"></span></a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-star fa-lg"></span></a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-star fa-lg"></span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-8">
+        <h2>
+          {{profile.name}}
+        </h2>
+        <p>
+          <strong>About:</strong> {{profile.aboutMe}}
+        </p>
+        <p class="instrumentTags">
+          <strong>Instruments:</strong> {{#each getInstrumentsPop}} <span class="label label-info tags">{{type}}: {{level}}</span> {{/each}}
+        </p>
+        <p>
+          <strong>Favorite Artists:</strong> {{this.profile.favoriteArtists}}
+        </p>
+        <div class="row">
+          <div class="col-sm-6">
+            <h2>
+
+              <strong class="fan-number">{{this.profile.fans}}</strong>
+
+            </h2>
+            <p>
+              <strong>Fans</strong>
+            </p><button class="btn btn-success btn-block follow-button"><span class="fa fa-plus-circle"></span> Follow</button><br>
+          </div>
+          <div class="col-sm-6">
+            <h2>
+              <strong>{{this.profile.following}}</strong>
+            </h2>
+            <p>
+              <strong>Following</strong>
+            </p><button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile</button>
+          </div><!--/col-->
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Message</button>
+          </div><!--/col-->
+        </div>
+      </div><!--/row-->
+    </div><!--/panel-body-->
+  </div><!--/panel-->
+  <div class="panel panel-default panel-body videoList">
+    <iframe frameborder="0" height="315" src="//www.youtube.com/embed/jyMBspET9kI" width="600"></iframe> <iframe class="pull-central"
+    frameborder="0" height="315" src="//www.youtube.com/embed/pUJGjWRFtno" width="600"></iframe>
+  </div>
+</div>
+</template>

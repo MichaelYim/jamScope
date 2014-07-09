@@ -13,6 +13,15 @@
 
 }
 
+.profile-labels {
+  font-size: 13px;
+
+}
+
+.profileListUnit {
+  cursor: pointer; cursor: hand;
+}
+
 .nav li a .img-circular {
   display:none;
 }

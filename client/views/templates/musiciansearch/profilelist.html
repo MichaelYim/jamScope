@@ -11,10 +11,12 @@
         <div class="col-md-9">
           <ul class="list-ul">
               <li class=""><h4 class="brand-primary">{{profile.name}}</h4></li>
-
+              <br>
               <ul class="list-ul">
               {{#each getInstruments}}
-                <li class="list-instruments">{{type}}: {{level}}</li>
+                <!-- <li class="list-instruments"> -->
+                <span class="label label-primary tags profile-labels">{{type}}: {{level}}</span>
+                <!-- </li> -->
               {{/each}}
               </ul>
           </ul>
