@@ -4,7 +4,8 @@ Template.edit_form.rendered = ->
   else
     populator = Meteor.user().profile.instrumentsPlayed.sort()
 
-  $("#e9").val(populator).select2()
+  $("#e9").val(populator).select2({maximumSelectionSize: 6})
+
   currentTarget = Meteor.userId()
   updateInfo =
     "profile.instrumentsPlayedTemporary": populator

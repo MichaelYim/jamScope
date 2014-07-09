@@ -1,3 +1,7 @@
+Template.profilelist.rendered = ->
+  $(document).on "click", ".openChat", (e) ->
+    $(".chat-class").removeClass('hide')
+
 Template.profilelist.helpers
 
   users: ->
@@ -13,10 +17,10 @@ Template.profilelist.helpers
 
 Template.profilelist.events "click .profileListUnit": (e) ->
   thisData = Meteor.users.findOne(e.currentTarget.id)
-
-  Crater.overlay "profilepop",
-    data:
-      thisData
+  if e.target.type != "button"
+    Crater.overlay "profilepop",
+      data:
+        thisData
 
 
 

@@ -30,7 +30,7 @@
           <strong>About:</strong> {{profile.aboutMe}}
         </p>
         <p class="instrumentTags">
-          <strong>Instruments:</strong> {{#each getInstrumentsPop}} <span class="label label-info tags">{{type}}: {{level}}</span> {{/each}}
+          <strong>Instruments:</strong> {{#each getInstrumentsPop}} <span class="label label-info tags profile-labels">{{type}}: {{level}}</span> {{/each}}
         </p>
         <p>
           <strong>Favorite Artists:</strong> {{this.profile.favoriteArtists}}
@@ -57,7 +57,7 @@
         </div>
         <div class="row">
           <div class="col-xs-6">
-            <button type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Message</button>
+            <button type="button" class="btn btn-primary btn-block"><span class="fa fa-wechat"></span> Message</button>
           </div><!--/col-->
         </div>
       </div><!--/row-->

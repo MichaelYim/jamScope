@@ -15,6 +15,13 @@
 
 .profile-labels {
   font-size: 13px;
+  margin-top:5px;
+  display:inline-block;
+
+}
+
+.openChat {
+  margin-top: 10px;
 
 }
 
