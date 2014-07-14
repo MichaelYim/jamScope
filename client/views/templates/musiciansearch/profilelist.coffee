@@ -3,12 +3,6 @@ Template.profilelist.rendered = ->
   $(document).on "click", ".openChat", (e) ->
     $(".chat-class").removeClass('hide')
 
-if num > 10
-  return "big"
-else
-  return "small"
-
-
 Template.profilelist.helpers
   users: ->
     if Session.get("selectedInstrument") == "all"

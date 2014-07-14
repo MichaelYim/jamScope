@@ -25,12 +25,12 @@ Template.map.rendered = ->
     google.maps.event.addListener map, "click", (e) ->
       placeMarker e.latLng, map
 
-      updateLatLng =
+      updateThis =
         "profile.lat": e.latLng.k
         "profile.long": e.latLng.B
-      current = Meteor.userId()
-      Meteor.users.update current,
-      $set: updateLatLng
+      currentTarget = Meteor.userId()
+
+      Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
 
     listOfUsers = Meteor.users.find().fetch()
 
@@ -63,7 +63,7 @@ Template.map.rendered = ->
 
   placeMarker = (position, map) ->
     ##add if statement for people adding forr the first time
-    if Meteor.user().profile.lat = null
+    if Meteor.user().profile.lat = null or undefined
 
     else
       oldPin = _.find(arrayOfMarkers, (x) ->
