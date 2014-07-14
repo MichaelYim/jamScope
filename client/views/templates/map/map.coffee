@@ -24,12 +24,12 @@ Template.map.rendered = ->
     google.maps.event.addListener map, "click", (e) ->
       placeMarker e.latLng, map
 
-      updateLatLng =
+      updateThis =
         "profile.lat": e.latLng.k
         "profile.long": e.latLng.B
-      current = Meteor.userId()
-      Meteor.users.update current,
-      $set: updateLatLng
+      currentTarget = Meteor.userId()
+
+      Meteor.call 'updateThis' ,updateThis, currentTarget, (error, result) ->
 
     listOfUsers = Meteor.users.find().fetch()
 
@@ -39,7 +39,6 @@ Template.map.rendered = ->
       if listOfUsers[i].profile.lat != null
         thisLocation = new google.maps.LatLng(listOfUsers[i].profile.lat, listOfUsers[i].profile.long)
         console.log listOfUsers[i].profile.lat
-
         marker = new google.maps.Marker(
           id: listOfUsers[i]._id
           title: listOfUsers[i].profile.name
@@ -63,13 +62,15 @@ Template.map.rendered = ->
 
   placeMarker = (position, map) ->
     ##add if statement for people adding forr the first time
-    if Meteor.user().profile.lat = null
-
+    if Meteor.user().profile.lat == null
+      console.log "non deleted"
     else
       oldPin = _.find(arrayOfMarkers, (x) ->
         x.id == Meteor.user()._id
       )
+      console.log oldPin
       oldPin.setMap(null)
+      oldPin = null
       arrayOfMarkers = _.filter(arrayOfMarkers, (x) ->
         x.id != Meteor.user()._id
       )
