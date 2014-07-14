@@ -15,6 +15,9 @@ Template.profilelist.helpers
   getInstruments: ->
     Instruments.find({owner:"#{this._id}"})
 
+  notMyself: ->
+    this._id != Meteor.user()._id
+
 Template.profilelist.events "click .profileListUnit": (e) ->
   thisData = Meteor.users.findOne(e.currentTarget.id)
   if e.target.type != "button"

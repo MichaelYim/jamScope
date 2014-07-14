@@ -18,9 +18,12 @@
                 <span class="label label-primary tags profile-labels">{{type}}: {{level}}</span>
                 <!-- </li> -->
               {{/each}}
+
+              {{#if notMyself}}
                 <div class="col-md-2-offset pull-central col-md-8">
                   <button type="button" class="btn btn-success btn-block openChat"><span class="fa fa-wechat"></span> Message</button>
                 </div>
+              {{/if}}
               </ul>
           </ul>
         </div>

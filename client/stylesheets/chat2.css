@@ -1,9 +1,10 @@
 .chatbox {
-  height: 400px;
+  max-height: 400px;
   width: 300px;
   padding-right: 0;
   padding-left: 0;
   margin-bottom: 0;
+
 
 }
 
@@ -32,8 +33,9 @@
 }
 
 .panel-body-style {
-  height: 325px;
+  max-height: 325px;
   width: 300px;
+  overflow-y:scroll;
 }
 
 .text-input-style {
