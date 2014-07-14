@@ -1,15 +1,9 @@
 Template.profilelist.rendered = ->
-  Crater.dismissOverlay('.crater-overlay')
   $(document).on "click", ".openChat", (e) ->
     $(".chat-class").removeClass('hide')
 
-if num > 10
-  return "big"
-else
-  return "small"
-
-
 Template.profilelist.helpers
+
   users: ->
     if Session.get("selectedInstrument") == "all"
       Meteor.users.find()
@@ -21,22 +15,12 @@ Template.profilelist.helpers
   getInstruments: ->
     Instruments.find({owner:"#{this._id}"})
 
-  ownerOfThis: ->
-    if Meteor.user()
-      this._id != Meteor.user()._id
-    else
-      true
-
-
-
 Template.profilelist.events "click .profileListUnit": (e) ->
   thisData = Meteor.users.findOne(e.currentTarget.id)
   if e.target.type != "button"
     Crater.overlay "profilepop",
       data:
         thisData
-
-
 
 
 

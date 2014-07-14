@@ -1,5 +1,4 @@
 Template.edit_form.rendered = ->
-  Crater.dismissOverlay('.crater-overlay')
   if Meteor.user().profile.instrumentsPlayed == null
     populator = [""]
   else
@@ -84,10 +83,6 @@ Template.edit_form.events "submit form": (e) ->
         level: newLevel,
 
       Meteor.call "insertInstrument", insertInfo, (error,result) ->
-
-  noty({text: 'Profile Updated', type: 'success', layout: 'topCenter', timeout: 4000})
-  Router.go('home')
-
 
 
 

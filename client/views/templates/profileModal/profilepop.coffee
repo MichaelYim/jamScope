@@ -17,7 +17,3 @@ Template.profilepop.events
 
     console.log this.profile.fans
 
-  "click .modal-msg-button": (e) ->
-    e.preventDefault()
-    Crater.dismissOverlay('.crater-overlay')
-    $(".chat-class").removeClass('hide')

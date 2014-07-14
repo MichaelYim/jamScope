@@ -7,7 +7,6 @@ makeModal = (marker, nameObject)->
 arrayOfMarkers = []
 
 Template.map.rendered = ->
-  Crater.dismissOverlay('.crater-overlay')
   GoogleMaps.init
     sensor: true #optional
     key: gmapskey #optional
@@ -35,7 +34,7 @@ Template.map.rendered = ->
     listOfUsers = Meteor.users.find().fetch()
 
 
-    arrayOfMarkers = []
+
     for i in [0...listOfUsers.length]
       thisLocation = new google.maps.LatLng(listOfUsers[i].profile.lat, listOfUsers[i].profile.long)
       console.log listOfUsers[i].profile.lat
