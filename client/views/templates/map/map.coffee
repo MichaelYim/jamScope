@@ -34,11 +34,11 @@ Template.map.rendered = ->
     listOfUsers = Meteor.users.find().fetch()
 
 
-
+    arrayOfMarkers = []
     for i in [0...listOfUsers.length]
       if listOfUsers[i].profile.lat != null
         thisLocation = new google.maps.LatLng(listOfUsers[i].profile.lat, listOfUsers[i].profile.long)
-        console.log listOfUsers[i].profile.lat
+        # console.log listOfUsers[i].profile.lat
         marker = new google.maps.Marker(
           id: listOfUsers[i]._id
           title: listOfUsers[i].profile.name
@@ -52,23 +52,26 @@ Template.map.rendered = ->
         contentStr = "#{name}"
         infowindow = new google.maps.InfoWindow(content: contentStr)
         infowindow.open(map, marker)
+
+
+
+
+
+        console.log "this is "+ marker.id
         arrayOfMarkers.push(marker)
+
 
         makeModal marker, nameObject
 
-
-
-
+    console.log arrayOfMarkers
 
   placeMarker = (position, map) ->
     ##add if statement for people adding forr the first time
     if Meteor.user().profile.lat == null
-      console.log "non deleted"
     else
       oldPin = _.find(arrayOfMarkers, (x) ->
         x.id == Meteor.user()._id
       )
-      console.log oldPin
       oldPin.setMap(null)
       oldPin = null
       arrayOfMarkers = _.filter(arrayOfMarkers, (x) ->
@@ -92,6 +95,4 @@ Template.map.rendered = ->
       infowindow.open map, marker
       makeModal marker, Meteor.user()
 
-
-    console.log(position)
 
