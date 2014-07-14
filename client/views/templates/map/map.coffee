@@ -30,32 +30,33 @@ Template.map.rendered = ->
         "profile.long": e.latLng.B
       currentTarget = Meteor.userId()
 
-      Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
+      Meteor.call 'updateThis' ,updateThis, currentTarget, (error, result) ->
 
     listOfUsers = Meteor.users.find().fetch()
 
 
     arrayOfMarkers = []
     for i in [0...listOfUsers.length]
-      thisLocation = new google.maps.LatLng(listOfUsers[i].profile.lat, listOfUsers[i].profile.long)
-      console.log listOfUsers[i].profile.lat
+      if listOfUsers[i].profile.lat != null
+        thisLocation = new google.maps.LatLng(listOfUsers[i].profile.lat, listOfUsers[i].profile.long)
+        console.log listOfUsers[i].profile.lat
 
-      marker = new google.maps.Marker(
-        id: listOfUsers[i]._id
-        title: listOfUsers[i].profile.name
-        position: thisLocation
-        map: map
-        icon: listOfUsers[i].profile.picturesquare
-      )
-      mapinfo = "hi"
-      name = listOfUsers[i].profile.name
-      nameObject = listOfUsers[i]
-      contentStr = "#{name}"
-      infowindow = new google.maps.InfoWindow(content: contentStr)
-      infowindow.open(map, marker)
-      arrayOfMarkers.push(marker)
+        marker = new google.maps.Marker(
+          id: listOfUsers[i]._id
+          title: listOfUsers[i].profile.name
+          position: thisLocation
+          map: map
+          icon: listOfUsers[i].profile.picturesquare
+        )
+        mapinfo = "hi"
+        name = listOfUsers[i].profile.name
+        nameObject = listOfUsers[i]
+        contentStr = "#{name}"
+        infowindow = new google.maps.InfoWindow(content: contentStr)
+        infowindow.open(map, marker)
+        arrayOfMarkers.push(marker)
 
-      makeModal marker, nameObject
+        makeModal marker, nameObject
 
 
 
@@ -63,13 +64,15 @@ Template.map.rendered = ->
 
   placeMarker = (position, map) ->
     ##add if statement for people adding forr the first time
-    if Meteor.user().profile.lat = null or undefined
-
+    if Meteor.user().profile.lat == null
+      console.log "non deleted"
     else
       oldPin = _.find(arrayOfMarkers, (x) ->
         x.id == Meteor.user()._id
       )
+      console.log oldPin
       oldPin.setMap(null)
+      oldPin = null
       arrayOfMarkers = _.filter(arrayOfMarkers, (x) ->
         x.id != Meteor.user()._id
       )
