@@ -36,25 +36,26 @@ Template.map.rendered = ->
 
 
     for i in [0...listOfUsers.length]
-      thisLocation = new google.maps.LatLng(listOfUsers[i].profile.lat, listOfUsers[i].profile.long)
-      console.log listOfUsers[i].profile.lat
+      if listOfUsers[i].profile.lat != null
+        thisLocation = new google.maps.LatLng(listOfUsers[i].profile.lat, listOfUsers[i].profile.long)
+        console.log listOfUsers[i].profile.lat
 
-      marker = new google.maps.Marker(
-        id: listOfUsers[i]._id
-        title: listOfUsers[i].profile.name
-        position: thisLocation
-        map: map
-        icon: listOfUsers[i].profile.picturesquare
-      )
-      mapinfo = "hi"
-      name = listOfUsers[i].profile.name
-      nameObject = listOfUsers[i]
-      contentStr = "#{name}"
-      infowindow = new google.maps.InfoWindow(content: contentStr)
-      infowindow.open(map, marker)
-      arrayOfMarkers.push(marker)
+        marker = new google.maps.Marker(
+          id: listOfUsers[i]._id
+          title: listOfUsers[i].profile.name
+          position: thisLocation
+          map: map
+          icon: listOfUsers[i].profile.picturesquare
+        )
+        mapinfo = "hi"
+        name = listOfUsers[i].profile.name
+        nameObject = listOfUsers[i]
+        contentStr = "#{name}"
+        infowindow = new google.maps.InfoWindow(content: contentStr)
+        infowindow.open(map, marker)
+        arrayOfMarkers.push(marker)
 
-      makeModal marker, nameObject
+        makeModal marker, nameObject
 
 
 
@@ -91,5 +92,5 @@ Template.map.rendered = ->
       makeModal marker, Meteor.user()
 
 
-    # console.log(position)
+    console.log(position)
 
