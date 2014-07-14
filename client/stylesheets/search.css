@@ -71,7 +71,12 @@ body .well {
 }
 
 #actual-search-button{
-  margin-right: 13px;
+  /*margin-right: 13px;*/
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom: 10px;
+
 }
 
 #fadeblack{

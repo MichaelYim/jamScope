@@ -8,4 +8,3 @@ Template.header.helpers
 
     active and 'active'
 
-
