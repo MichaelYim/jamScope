@@ -1,34 +1,34 @@
-Template.chat.rendered = ->
-  $(document).on "click", ".panel-heading", (e) ->
-    $this = $(this)
-    unless $this.hasClass("panel-collapsed")
-      $this.parents(".panel").find(".panel-body").slideUp()
-      $this.addClass "panel-collapsed"
-      $this.removeClass("glyphicon-minus").addClass "glyphicon-plus"
-    else
-      $this.parents(".panel").find(".panel-body").slideDown()
-      $this.removeClass "panel-collapsed"
-      $this.removeClass("glyphicon-plus").addClass "glyphicon-minus"
-    return
+# Template.chat2.rendered = ->
+#   $(document).on "click", ".panel-heading", (e) ->
+#     $this = $(this)
+#     unless $this.hasClass("panel-collapsed")
+#       $this.parents(".panel").find(".panel-body").slideUp()
+#       $this.addClass "panel-collapsed"
+#       $this.removeClass("glyphicon-minus").addClass "glyphicon-plus"
+#     else
+#       $this.parents(".panel").find(".panel-body").slideDown()
+#       $this.removeClass "panel-collapsed"
+#       $this.removeClass("glyphicon-plus").addClass "glyphicon-minus"
+#     return
 
-  $(document).on "focus", ".panel-footer input.chat_input", (e) ->
-    $this = $(this)
-    if $("#minim_chat_window").hasClass("panel-collapsed")
-      $this.parents(".panel").find(".panel-body").slideDown()
-      $("#minim_chat_window").removeClass "panel-collapsed"
-      $("#minim_chat_window").removeClass("glyphicon-plus").addClass "glyphicon-minus"
-    return
+#   $(document).on "focus", ".panel-footer input.chat_input", (e) ->
+#     $this = $(this)
+#     if $("#minim_chat_window").hasClass("panel-collapsed")
+#       $this.parents(".panel").find(".panel-body").slideDown()
+#       $("#minim_chat_window").removeClass "panel-collapsed"
+#       $("#minim_chat_window").removeClass("glyphicon-plus").addClass "glyphicon-minus"
+#     return
 
-  $(document).on "click", "#new_chat", (e) ->
-    size = $(".chat-window:last-child").css("margin-left")
-    size_total = parseInt(size) + 400
-    alert size_total
-    clone = $("#chat_window_1").clone().appendTo(".container")
-    clone.css "margin-left", size_total
-    return
+#   $(document).on "click", "#new_chat", (e) ->
+#     size = $(".chat-window:last-child").css("margin-left")
+#     size_total = parseInt(size) + 400
+#     alert size_total
+#     clone = $("#chat_window_1").clone().appendTo(".container")
+#     clone.css "margin-left", size_total
+#     return
 
-  $(document).on "click", ".icon_close", (e) ->
+#   $(document).on "click", ".icon_close", (e) ->
 
-    #$(this).parent().parent().parent().parent().remove();
-    $("#chat_window_1").remove()
-    return
+#     #$(this).parent().parent().parent().parent().remove();
+#     $("#chat_window_1").remove()
+#     return
