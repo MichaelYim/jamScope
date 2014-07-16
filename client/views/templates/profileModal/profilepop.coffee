@@ -17,3 +17,7 @@ Template.profilepop.events
 
     console.log this.profile.fans
 
+  "click #closeModalGlyph": (e) ->
+    Crater.dismissOverlay('.crater-overlay')
+
+

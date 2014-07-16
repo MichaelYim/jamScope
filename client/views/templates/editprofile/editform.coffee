@@ -1,4 +1,5 @@
 Template.edit_form.rendered = ->
+  Crater.dismissOverlay('.crater-overlay')
   if Meteor.user().profile.instrumentsPlayed == null
     populator = [""]
   else

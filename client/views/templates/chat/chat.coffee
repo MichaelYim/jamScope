@@ -1,5 +1,5 @@
 Template.chat.rendered = ->
-  $(document).on "click", ".panel-heading span.icon_minim", (e) ->
+  $(document).on "click", ".panel-heading", (e) ->
     $this = $(this)
     unless $this.hasClass("panel-collapsed")
       $this.parents(".panel").find(".panel-body").slideUp()

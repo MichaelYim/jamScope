@@ -7,6 +7,7 @@ makeModal = (marker, nameObject)->
 arrayOfMarkers = []
 
 Template.map.rendered = ->
+  Crater.dismissOverlay('.crater-overlay')
   GoogleMaps.init
     sensor: true #optional
     key: gmapskey #optional

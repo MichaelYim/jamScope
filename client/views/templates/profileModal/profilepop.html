@@ -1,5 +1,6 @@
 <template name = "profilepop">
   <div class="container row crater-alert-box">
+    <a href="#"><span id="closeModalGlyph" class="glyphicon glyphicon-remove pull-right"></span></a>
   <div class="panel panel-default profilePanel">
     <div class="panel-body row">
       <div class="col-sm-4 text-center">
@@ -57,15 +58,21 @@
         </div>
         <div class="row">
           <div class="col-xs-6">
-            <button type="button" class="btn btn-primary btn-block"><span class="fa fa-wechat"></span> Message</button>
+            <button type="button" class="btn btn-primary btn-block"><span class="fa fa-wechat"></span> Chat</button>
           </div><!--/col-->
         </div>
       </div><!--/row-->
     </div><!--/panel-body-->
   </div><!--/panel-->
-  <div class="panel panel-default panel-body videoList">
-    <iframe frameborder="0" height="315" src="//www.youtube.com/embed/jyMBspET9kI" width="600"></iframe> <iframe class="pull-central"
-    frameborder="0" height="315" src="//www.youtube.com/embed/pUJGjWRFtno" width="600"></iframe>
+  <div class="pull-central panel panel-default panel-body videoList">
+    <div class="video-container">
+      <iframe frameborder="0" height="315" src="//www.youtube.com/embed/jyMBspET9kI" width="600"></iframe>
+    </div>
+    <br>
+    <div class="video-container">
+      <iframe class="pull-central"
+      frameborder="0" height="315" src="//www.youtube.com/embed/pUJGjWRFtno" width="600"></iframe>
+    </div>
   </div>
 </div>
 </template>

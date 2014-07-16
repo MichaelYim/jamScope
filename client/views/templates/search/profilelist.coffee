@@ -1,4 +1,5 @@
 Template.profilelist.rendered = ->
+  Crater.dismissOverlay('.crater-overlay')
   $(document).on "click", ".openChat", (e) ->
     $(".chat-class").removeClass('hide')
 

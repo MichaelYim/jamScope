@@ -2,24 +2,28 @@
     {{> header}}
     <main class="main container" id="central">
       {{> yield}}
-    </main>
 
-    <div class="chat-position">
+
+    <div class="chat-position hide">
       {{> chat}}
     </div>
 
-    <div class="chat-position2">
+    <div class="chat-position2 hide">
       <div>{{> chat2}}</div>
     </div>
-    <div class="chat-position3">
+    <div class="chat-position3 hide">
       <div>{{> chat2}}</div>
     </div>
 
-    <footer>
+    <div class="hide">
+      {{>chat_foot}}
+    </div>
+    </main>
+    <footer class="navbar-fixed-bottom footer-style">
       <div class="container">
         <p class="text-muted pull-right">
           &copy; 2014 by <a href="#">jamScope</a> &bull;
-          <a href="#">Privacy Policy</a> &bull;
+         <!--  <a href="#">Privacy Policy</a> &bull; -->
           <a href="#">Terms of Use</a>
         </p>
       </div>

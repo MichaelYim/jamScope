@@ -6,3 +6,5 @@
   insert: ownsDocument
 
 @InstrumentList = new Meteor.Collection 'instrumentList'
+
+@Chatrooms = new Meteor.Collection 'chatrooms'
