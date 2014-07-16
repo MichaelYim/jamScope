@@ -1,26 +1,29 @@
 <template name="profilelist">
-  <div class="container pull-center" id="search-outputs">
+  <div class="container pull-center col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 " id="search-outputs">
     {{#each users}}
     <!-- profile-list-box -->
       <div class="well row profileListUnit" id="{{_id}}">
-        <div class="col-md-3">
-          <div class="in-line listpic-cropper">
+        <div class="col-md-3 col-sm-12">
+          <div class="in-line pull-central listpic-cropper">
             <img class ="listpic" src={{profile.picture}}>
           </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 col-sm-12">
           <ul class="list-ul">
-              <li class=""><h4 class="brand-primary">{{profile.name}}</h4></li>
+              <li class=""><h4 class="brand-primary text-center">{{profile.name}}</h4></li>
               <br>
               <ul class="list-ul">
-              {{#each getInstruments}}
-                <!-- <li class="list-instruments"> -->
-                <span class="label label-primary tags profile-labels">{{type}}: {{level}}</span>
-                <!-- </li> -->
-              {{/each}}
+
+              <div class="text-center">
+                {{#each getInstruments}}
+                  <!-- <li class="list-instruments"> -->
+                  <span class="label label-primary tags profile-labels">{{type}}: {{level}}</span>
+                  <!-- </li> -->
+                {{/each}}
+              </div>
 
               {{#if notMyself}}
-                <div class="col-md-2-offset pull-central col-md-8">
+                <div class="pull-central">
                   <button type="button" class="btn btn-success btn-block openChat"><span class="fa fa-wechat"></span> Message</button>
                 </div>
               {{/if}}
