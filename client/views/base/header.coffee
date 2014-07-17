@@ -1,3 +1,6 @@
+Template.header.rendered = ->
+  Session.set("chatBoxArray", [])
+
 Template.header.helpers
   activeRouteClass: () ->
     args = Array.prototype.slice.call(arguments, 0)

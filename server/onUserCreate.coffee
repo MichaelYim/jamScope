@@ -15,6 +15,7 @@ Accounts.onCreateUser (options, user) ->
     options.profile.video1 = null
     options.profile.video2 = null
     options.profile.favoriteArtists = null
+    options.profile.chatPartners = []
 
   user
 

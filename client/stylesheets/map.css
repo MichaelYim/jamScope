@@ -6,7 +6,7 @@ body {
   height: 100%; margin: 0; padding: 0;
   background-color:#302B21;
   background: url(http://www.theolympiastudio.com/wp-content/uploads/2014/03/guitar-slider.jpg) no-repeat center center fixed;
-  /*background-size: cover;*/
+  background-size: cover;
 
 }
 

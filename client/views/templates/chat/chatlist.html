@@ -4,23 +4,15 @@
       <div class="col-md-8">
         <h4><span class="fa fa-weixin"></span> Chat</h4>
       </div>
-      <div class="col-md-4 panel-buttons">
+      <div class="col-md-4 panel-buttons list-minimize-button">
         <a href="#"><span class="color-white pull-right glyphicon glyphicon-minus icon_minim"></span></a>
       </div>
     </div>
 
       <div class="chatlisting">
-          <div class="user-tab">Victor</div>
-          <div class="user-tab">MJ</div>
-          <div class="user-tab">Paul</div>
-          <div class="user-tab">Tyson</div>
-          <div class="user-tab">Vince</div>
+      {{#each existingChatList}}
+         <div class="user-tab" id="chatlist-{{this._id}}">{{this.profile.name}}</div>
+      {{/each}}
       </div>
-
-
-
-
-
-
   </div>
 </template>

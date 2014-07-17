@@ -8,8 +8,7 @@
       "select2-bootstrap3-css": {},
       "bootstrap-3": {},
       "accounts-ui-bootstrap-3": {},
-      "crater-modals": {},
-      "fast-render": {}
+      "crater-modals": {}
     },
     "packages": {
       "iron-router": {
@@ -46,11 +45,6 @@
         "git": "https://github.com/subhog/meteor-crater-modals.git",
         "tag": "v0.0.5",
         "commit": "95c9bf009b44d1aa190243bd5b254c8dc6f42951"
-      },
-      "fast-render": {
-        "git": "https://github.com/arunoda/meteor-fast-render.git",
-        "tag": "v0.2.8",
-        "commit": "149984b1aff3a5642a270aff9bd9006872c8302e"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

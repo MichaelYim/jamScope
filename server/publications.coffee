@@ -13,3 +13,5 @@ Meteor.publish "instrumentList", ->
   InstrumentList.find()
 
 
+Meteor.publish "chatrooms", ->
+  Chatrooms.find()

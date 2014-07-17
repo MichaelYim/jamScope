@@ -2,3 +2,7 @@
   background: black;
 
 }
+
+body {
+  overflow-y: scroll
+}
