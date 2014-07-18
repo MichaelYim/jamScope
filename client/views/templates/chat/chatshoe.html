@@ -1,4 +1,9 @@
 <template name="chatshoe">
-  {{> chatfoot}}
-  {{> chatlist}}
+  <div class="chat-foot" id="chatfoot">
+  <!-- {{> chatfoot}} -->
+    {{#each chatBoxArray}}
+    <span class="Number1">{{> chat2}}</span>
+    {{/each}}
+  </div>
+  <div class="col-md-2">{{> chatlist}}</div>
 </template>

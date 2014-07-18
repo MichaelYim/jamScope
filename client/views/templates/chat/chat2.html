@@ -1,13 +1,13 @@
 <template name="chat2">
-  <div class="chat2">
+  <span class="chat2">
     <div class="pull-left">
       <div class="container panel panel-primary chatbox">
         <div class="panel-heading panel-heading-style row">
           <div class="col-md-8">
             <h3 class="panel-title">
               <span class="glyphicon glyphicon-comment"></span>
-              Joe Teo
-            </h3>
+                {{thisUser.profile.name}}
+              </h3>
           </div>
           <div class="col-md-4 panel-buttons">
             <a href="#"><span class="glyphicon glyphicon-minus icon_minim"></span></a>
@@ -15,7 +15,24 @@
           </div>
         </div>
         <div class="panel-body panel-body-style">
-          <div class="chat-msg-display"></div>
+          <div class="chat-msg-display">
+
+
+            {{#each thisChat.messages}}
+              {{#if mine}}
+                <div class="chat-unit-me row">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-7 chat-content-me">{{content}}</div>
+                  <div class="col-md-1"></div>
+                </div>
+              {{else}}
+                <div class="chat-unit row">
+                  <div class="col-md-2"><img class ="chatlist-pic" src={{picture}}></div>
+                  <div class="col-md-10 chat-content">{{content}}</div>
+                </div>
+              {{/if}}
+            {{/each}}
+          </div>
 
           Panel content
         </div>
@@ -23,10 +40,10 @@
           <div class="panel panel-default panel-footer2">
             <div class="panel-body text-input-style">
               <div class="col-md-10 input-spacing">
-                <input class="form-control input-sm chat_input" id="btn-input" placeholder="Write your message here..." type="text">
+                <input class="form-control input-sm chat_input" name="input" id="btn-input" placeholder="Write your message here..." type="text">
               </div>
               <div class="col-md-2 input-spacing">
-                <button class="btn btn-primary btn-sm">send</button>
+                <button class="btn btn-primary btn-sm msg-btn">send</button>
               </div>
 
             </div>
@@ -34,5 +51,5 @@
 
       </div>
     </div>
-  </div>
+  </span>
 </template>

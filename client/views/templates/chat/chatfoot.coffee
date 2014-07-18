@@ -1,3 +1,3 @@
-Template.chatfoot.helpers
+Template.chatshoe.helpers
   chatBoxArray: ->
     Session.get("chatBoxArray")

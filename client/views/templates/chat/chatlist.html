@@ -10,9 +10,17 @@
     </div>
 
       <div class="chatlisting">
-      {{#each existingChatList}}
-         <div class="user-tab" id="chatlist-{{this._id}}">{{this.profile.name}}</div>
-      {{/each}}
+        {{#each existingChatList}}
+         <div class="user-tab row" id="chatlist-{{this._id}}">
+          <div class="col-md-1"></div>
+          <div class="col-md-3">
+            <img class ="chatlist-pic" src={{this.profile.picturesquare}}>
+          </div>
+          <span class="chatlist-name col-md-6">
+            {{this.profile.name}}
+          </span>
+         </div>
+        {{/each}}
       </div>
   </div>
 </template>

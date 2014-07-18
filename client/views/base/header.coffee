@@ -1,5 +1,6 @@
 Template.header.rendered = ->
   Session.set("chatBoxArray", [])
+  # @sessionArray = []
 
 Template.header.helpers
   activeRouteClass: () ->

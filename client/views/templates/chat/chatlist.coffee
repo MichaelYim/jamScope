@@ -7,20 +7,26 @@ Template.chatlist.helpers
     nameList
 
 Template.chatlist.events "click .user-tab": (e) ->
-  link = [Meteor.user()._id, this._id].sort()
-  link = link[0].concat(link[1])
-  sessionArray = Session.get("chatBoxArray")
+  # console.log "clicking"
+  link = this._id
 
-  # if _.contains(sessionArray, link) == false
-  if sessionArray.length >= 3
-    sessionArray.splice(0,1)
-    sessionArray.push(link)
-    Session.set("chatBoxArray", sessionArray)
+  sessionArray = Session.get("chatBoxArray")
+  # console.log sessionArray
+
+  if _.contains(sessionArray, link) == false
+    if sessionArray.length >= 3
+      sessionArray.shift()
+      sessionArray.push(link)
+      # console.log "remove first and add " + sessionArray
+      Session.set("chatBoxArray", sessionArray)
+    else
+      sessionArray.push(link)
+      Session.set("chatBoxArray", sessionArray)
+      # console.log "add " + sessionArray
+
   else
-    sessionArray.push(link)
-    Session.set("chatBoxArray", sessionArray)
-  # else
-  #   console.log "already exists"
-  console.log Session.get("chatBoxArray")
+    # console.log "already exists"
+    # console.log Session.get("chatBoxArray")
+    # console.log sessionArray
 
 
