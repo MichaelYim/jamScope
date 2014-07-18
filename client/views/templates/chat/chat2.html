@@ -1,5 +1,5 @@
 <template name="chat2">
-  <span class="chat2">
+  <span class="chat2" id ="{{thisUser._id}}">
     <div class="pull-left">
       <div class="container panel panel-primary chatbox">
         <div class="panel-heading panel-heading-style row">
@@ -33,14 +33,12 @@
               {{/if}}
             {{/each}}
           </div>
-
-          Panel content
         </div>
 
           <div class="panel panel-default panel-footer2">
             <div class="panel-body text-input-style">
               <div class="col-md-10 input-spacing">
-                <input class="form-control input-sm chat_input" name="input" id="btn-input" placeholder="Write your message here..." type="text">
+                <input class="form-control input-sm chat_input" name="input" id="" placeholder="Write your message here..." type="text">
               </div>
               <div class="col-md-2 input-spacing">
                 <button class="btn btn-primary btn-sm msg-btn">send</button>

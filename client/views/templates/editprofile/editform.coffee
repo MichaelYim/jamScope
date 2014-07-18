@@ -61,7 +61,7 @@ Template.edit_form.events "submit form": (e) ->
       "profile.favoriteArtists": $target.find("[name=favoriteArtists]").val()
       "profile.instrumentsPlayed": $("#e9").val().sort()
 
-
+    console.log updateInfo
   Meteor.call 'updateThis', updateInfo, currentTarget, (error, result) ->
 
   Meteor.call "deleteInstrumentsInCollection", (err, response) ->

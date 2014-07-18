@@ -14,3 +14,6 @@ Meteor.methods updateFans: (updateFans,currentTarget) ->
     Meteor.users.update currentTarget,
     $set: updateFans
 
+Meteor.methods updateChatrooms: (updateInfo, currentTarget) ->
+  Chatrooms.update currentTarget,
+  $set:updateInfo
