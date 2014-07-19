@@ -3,6 +3,9 @@ Template.profilelist.rendered = ->
   $(document).on "click", ".openChat", (e) ->
     $(".chat-class").removeClass('hide')
 
+  if !Meteor.user()
+    $('.well').attr("title", "sign in to chat!")
+
 Template.profilelist.helpers
 
   users: ->
@@ -17,7 +20,8 @@ Template.profilelist.helpers
     Instruments.find({owner:"#{this._id}"})
 
   notMyself: ->
-    this._id != Meteor.user()._id
+    if Meteor.user()
+      this._id != Meteor.user()._id
 
 Template.profilelist.events "click .profileListUnit": (e) ->
   thisData = Meteor.users.findOne(e.currentTarget.id)

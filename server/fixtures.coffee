@@ -76,6 +76,25 @@ if Chatrooms.find().count() is 0
       }
     ]
 
+  Chatrooms.insert
+    user1: "3t2sE8Q8JDqgNxq7X",
+    user2: "HCZ9P4dGxaA9xCWRA",
+    link: "3t2sE8Q8JDqgNxq7XHCZ9P4dGxaA9xCWRA",
+    messages: [
+      {
+        owner: "3t2sE8Q8JDqgNxq7X",
+        content: "hi I am Michael",
+        timestamp: 1234,
+        read: false
+      },
+      {
+        owner: "HCZ9P4dGxaA9xCWRA",
+        content: "I'm the first pick!",
+        timestamp: 2345,
+        read: false
+      }
+    ]
+
 
 
 

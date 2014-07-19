@@ -7,6 +7,8 @@ makeModal = (marker, nameObject)->
 arrayOfMarkers = []
 
 Template.map.rendered = ->
+  if !Meteor.user()
+    $('#map-canvas').attr("title", "sign in to add your pin!")
   Crater.dismissOverlay('.crater-overlay')
   GoogleMaps.init
     sensor: true #optional
@@ -39,7 +41,6 @@ Template.map.rendered = ->
     for i in [0...listOfUsers.length]
       if listOfUsers[i].profile.lat != null
         thisLocation = new google.maps.LatLng(listOfUsers[i].profile.lat, listOfUsers[i].profile.long)
-        # console.log listOfUsers[i].profile.lat
         marker = new google.maps.Marker(
           id: listOfUsers[i]._id
           title: listOfUsers[i].profile.name
@@ -50,13 +51,11 @@ Template.map.rendered = ->
         mapinfo = "hi"
         name = listOfUsers[i].profile.name
         nameObject = listOfUsers[i]
-        contentStr = "#{name}"
+        contentStr = "<div style='height:auto, width:auto'>#{name}</div>"
         infowindow = new google.maps.InfoWindow(content: contentStr)
+
+
         infowindow.open(map, marker)
-
-
-
-
 
         console.log "this is "+ marker.id
         arrayOfMarkers.push(marker)

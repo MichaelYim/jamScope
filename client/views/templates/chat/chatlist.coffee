@@ -6,6 +6,8 @@ Template.chatlist.helpers
       nameList.push(Meteor.users.findOne(idList[i]))
     nameList
 
+
+
 Template.chatlist.events "click .user-tab": (e) ->
   # console.log "clicking"
   link = this._id

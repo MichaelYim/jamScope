@@ -20,8 +20,6 @@ Template.chat2.helpers
     link = link[0].concat(link[1])
     object = Chatrooms.find({link: link}).fetch()
     object[0]
-    # z = Chatrooms.find(link).fetch()
-    # console.log z
 
   mine: ->
     this.owner == Meteor.user()._id
@@ -30,6 +28,11 @@ Template.chat2.helpers
     x = this.owner.toString()
     user = Meteor.users.find(x).fetch()
     user[0].profile.picturesquare
+
+Template.chat2.events "change .chat-unit": (e)->
+  console.log this
+  console.log "this changed"
+  console.log e
 
 Template.chat2.events "click .msg-btn": (e) ->
   e.preventDefault()

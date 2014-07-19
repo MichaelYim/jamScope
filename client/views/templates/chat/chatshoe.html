@@ -5,5 +5,7 @@
     <span class="Number1">{{> chat2}}</span>
     {{/each}}
   </div>
+  {{#if currentUser}}
   <div class="col-md-2">{{> chatlist}}</div>
+  {{/if}}
 </template>
