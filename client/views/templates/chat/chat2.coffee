@@ -7,6 +7,12 @@ Template.chat2.rendered= ->
     scrollTop: $target.height() * 10
   , 0
 
+  link = [Meteor.user()._id, cleanId].sort()
+  link = link[0].concat(link[1])
+  # object = Chatrooms.find({link:link}).fetch()
+  # console.log object[0].messages.length + " say hiiii"
+
+
 
 Template.chat2.helpers
   thisUser: ->
@@ -29,7 +35,7 @@ Template.chat2.helpers
     user = Meteor.users.find(x).fetch()
     user[0].profile.picturesquare
 
-Template.chat2.events "change .chat-unit": (e)->
+Template.chat2.events "change .panel-body-style": (e)->
   console.log this
   console.log "this changed"
   console.log e
@@ -93,3 +99,22 @@ Template.chat2.events "keydown .chat_input": (event) ->
         scrollTop: $target.height() * 10
       , 100
       $(thisId).find('.chat_input').val('')
+
+Template.chat2.events "click .icon_minim": (e) ->
+  cleanId = this.toString()
+  thisId = '#'+ this
+  thisId = thisId.toString()
+
+
+
+  if $(thisId).hasClass("panel-collapsed")
+    # $(".chatlisting").removeClass("panel-collapsed")
+    # $("#chatlist-box").find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus")
+    # $("#chatlist-box").find(".panel-body").slideDown()
+
+  else
+    console.log "this is lese"
+    $(thisId).addClass("panel-collapsed")
+    $(thisId).find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus")
+    $(thisId).find(".panel-body").slideUp()
+    $(thisId).find(".panel-footer2").addClass("hide")

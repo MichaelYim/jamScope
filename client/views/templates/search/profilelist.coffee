@@ -1,7 +1,5 @@
 Template.profilelist.rendered = ->
   Crater.dismissOverlay('.crater-overlay')
-  $(document).on "click", ".openChat", (e) ->
-    $(".chat-class").removeClass('hide')
 
   if !Meteor.user()
     $('.well').attr("title", "sign in to chat!")
@@ -24,7 +22,7 @@ Template.profilelist.helpers
       this._id != Meteor.user()._id
 
 Template.profilelist.events "click .profileListUnit": (e) ->
-  thisData = Meteor.users.findOne(e.currentTarget.id)
+  thisData = Meteor.users.findOne(e.currentTarget.id.substring(2))
   if e.target.type != "button"
     Crater.overlay "profilepop",
       data:

@@ -9,26 +9,37 @@ Template.chatlist.helpers
 
 
 Template.chatlist.events "click .user-tab": (e) ->
-  # console.log "clicking"
   link = this._id
 
   sessionArray = Session.get("chatBoxArray")
-  # console.log sessionArray
 
   if _.contains(sessionArray, link) == false
     if sessionArray.length >= 3
       sessionArray.shift()
       sessionArray.push(link)
-      # console.log "remove first and add " + sessionArray
       Session.set("chatBoxArray", sessionArray)
     else
       sessionArray.push(link)
       Session.set("chatBoxArray", sessionArray)
-      # console.log "add " + sessionArray
+  else
+
+
+Template.chatlist.events "click .list-minimize-button": (e) ->
+  if $(".chatlisting").hasClass("panel-collapsed")
+    $(".chatlisting").removeClass("panel-collapsed")
+    $("#chatlist-box").find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus")
+    $("#chatlist-box").find(".panel-body").slideDown()
+    $("#chatlist-box").find(".panel-heading").css({"margin-bottom":"9px"})
+    $("#chatlist-box").find(".panel-heading").css({"margin-bottom":"0"})
 
   else
-    # console.log "already exists"
-    # console.log Session.get("chatBoxArray")
-    # console.log sessionArray
+    $(".chatlisting").addClass("panel-collapsed")
+    $("#chatlist-box").find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus")
+    $("#chatlist-box").find(".panel-body").slideUp()
+    $("#chatlist-box").find(".panel-heading").css({"margin-bottom":"9px"})
+
+
+
+
 
 

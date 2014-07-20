@@ -93,7 +93,7 @@
 .chat2 .panel-footer2 {
   bottom:0;
   background: #ececec;
-
+  margin-bottom:0;
 }
 
 .chat2 .icon_close:hover,{
@@ -107,6 +107,19 @@
 
 #chatlist-box{
   color:black;
+  max-height: 400px;
+  max-width: 250px;
+  padding:0;
+
+  background-color:#f9f9f9;
+  bottom:0;
+  /*right:5px;*/
+  position:fixed;
+  right:0;
+}
+
+#chatlist-body{
+  color:black;
   min-height: 400px;
   width: 250px;
   padding:0;
@@ -118,9 +131,12 @@
   right:0;
 }
 
+
 #chatlist-box .panel-heading-style{
   margin-left:0px;
   margin-right:0px;
+  height:41px;
+  width:240px;
 
 }
 
@@ -149,6 +165,10 @@
 .chat-overall {
 
 
+}
+
+.chat-unit{
+  margin-bottom:10px;
 }
 
 .chat-unit-me {
