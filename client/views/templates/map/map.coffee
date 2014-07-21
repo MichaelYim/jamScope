@@ -53,13 +53,8 @@ Template.map.rendered = ->
         nameObject = listOfUsers[i]
         contentStr = "<div style='height:auto, width:auto'>#{name}</div>"
         infowindow = new google.maps.InfoWindow(content: contentStr)
-
-
         infowindow.open(map, marker)
-
-        console.log "this is "+ marker.id
         arrayOfMarkers.push(marker)
-
 
         makeModal marker, nameObject
 

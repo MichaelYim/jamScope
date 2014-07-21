@@ -10,8 +10,8 @@ Accounts.onCreateUser (options, user) ->
     options.profile.instrumentsPlayedTemporary = []
     options.profile.lat = null
     options.profile.long = null
-    options.profile.fans = 0
-    options.profile.following = 0
+    options.profile.fans = []
+    options.profile.following = []
     options.profile.video1 = null
     options.profile.video2 = null
     options.profile.favoriteArtists = null
