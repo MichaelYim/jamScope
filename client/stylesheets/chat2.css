@@ -87,6 +87,7 @@
 
 .chat2 .panel-buttons {
   text-align:right;
+  padding-right:0;
 }
 
 .chat2 .panel-footer2 {
