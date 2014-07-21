@@ -1,4 +1,4 @@
-Template.chat2.rendered= ->
+Template.chat2.rendered = ->
   cleanId = this.data.toString()
   thisId = '#'+ cleanId
   thisId = thisId.toString()
@@ -9,10 +9,14 @@ Template.chat2.rendered= ->
 
   link = [Meteor.user()._id, cleanId].sort()
   link = link[0].concat(link[1])
-  # object = Chatrooms.find({link:link}).fetch()
-  # console.log object[0].messages.length + " say hiiii"
 
-
+  Deps.autorun ->
+    chatroom = Chatrooms.findOne({link:link})
+    messageLength = chatroom.messages.length
+    if messageLength
+      $target.animate
+        scrollTop: $target.height() * 10
+      , 0
 
 Template.chat2.helpers
   thisUser: ->
@@ -64,10 +68,6 @@ Template.chat2.events "click .msg-btn": (e) ->
     currentTarget = object[0]._id
     Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
 
-    $target = $(thisId).find('.panel-body-style')
-    $target.animate
-      scrollTop: $target.height() * 10
-    , 100
     $(thisId).find('.chat_input').val('')
 
 Template.chat2.events "keydown .chat_input": (event) ->
@@ -94,10 +94,6 @@ Template.chat2.events "keydown .chat_input": (event) ->
       currentTarget = object[0]._id
       Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
 
-      $target = $(thisId).find('.panel-body-style')
-      $target.animate
-        scrollTop: $target.height() * 10
-      , 100
       $(thisId).find('.chat_input').val('')
 
 Template.chat2.events "click .icon_minim": (e) ->
@@ -106,15 +102,29 @@ Template.chat2.events "click .icon_minim": (e) ->
   thisId = thisId.toString()
 
 
-
   if $(thisId).hasClass("panel-collapsed")
-    # $(".chatlisting").removeClass("panel-collapsed")
-    # $("#chatlist-box").find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus")
-    # $("#chatlist-box").find(".panel-body").slideDown()
+    $(thisId).removeClass("panel-collapsed")
+    $(thisId).find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus")
+    $(thisId).find(".panel-body").show()
+    $(thisId).find(".panel-footer2").show()
+    $(thisId).find(".panel").css({"margin-top":"0"})
+
 
   else
     console.log "this is lese"
     $(thisId).addClass("panel-collapsed")
     $(thisId).find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus")
-    $(thisId).find(".panel-body").slideUp()
-    $(thisId).find(".panel-footer2").addClass("hide")
+    $(thisId).find(".panel-body").hide()
+    $(thisId).find(".panel-footer2").hide()
+    $(thisId).find(".panel").css({"margin-top":"80%"})
+
+Template.chat2.events "click .icon_close": (e) ->
+  cleanId = this.toString()
+
+  sessionArray = Session.get("chatBoxArray")
+  sessionArray = _.filter(sessionArray, (x) ->
+        x != cleanId
+      )
+  Session.set("chatBoxArray", sessionArray)
+
+
