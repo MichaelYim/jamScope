@@ -2,8 +2,6 @@
 
 }
 
-
-
 .chat-foot {
   position:fixed;
   bottom:0;
@@ -117,6 +115,7 @@
   /*right:5px;*/
   position:fixed;
   right:0;
+  overflow-y:scroll;
 }
 
 #chatlist-body{
@@ -178,9 +177,9 @@
 
 }
 
-.chat-listing {
+/*.chat-listing {
   overflow-y:scroll;
-}
+}*/
 
 .chat-content {
   background: white;

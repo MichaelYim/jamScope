@@ -8,7 +8,6 @@ iron-router
 coffeescript
 googlemaps
 accounts-facebook
-accounts-password
 select2
 select2-bootstrap3-css
 bootstrap-3

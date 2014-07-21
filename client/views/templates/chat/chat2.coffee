@@ -1,22 +1,23 @@
 Template.chat2.rendered = ->
-  cleanId = this.data.toString()
-  thisId = '#'+ cleanId
-  thisId = thisId.toString()
-  $target = $(thisId).find('.panel-body-style')
-  $target.animate
-    scrollTop: $target.height() * 10
-  , 0
+   if (!this.rendered)
+    cleanId = this.data.toString()
+    thisId = '#'+ cleanId
+    thisId = thisId.toString()
+    $target = $(thisId).find('.panel-body-style')
+    $target.animate
+      scrollTop: $target.height() * 10
+    , 0
 
-  link = [Meteor.user()._id, cleanId].sort()
-  link = link[0].concat(link[1])
+    link = [Meteor.user()._id, cleanId].sort()
+    link = link[0].concat(link[1])
 
-  Deps.autorun ->
-    chatroom = Chatrooms.findOne({link:link})
-    messageLength = chatroom.messages.length
-    if messageLength
-      $target.animate
-        scrollTop: $target.height() * 10
-      , 0
+    Deps.autorun ->
+      chatroom = Chatrooms.findOne({link:link})
+      messageLength = chatroom.messages.length
+      if messageLength
+        $target.animate
+          scrollTop: $target.height() * 10
+        , 300
 
 Template.chat2.helpers
   thisUser: ->
@@ -69,6 +70,18 @@ Template.chat2.events "click .msg-btn": (e) ->
     Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
 
     $(thisId).find('.chat_input').val('')
+    $target = $(thisId).find('.panel-body-style')
+    $target.animate
+      scrollTop: $target.height() * 10
+    , 300
+
+    Deps.autorun ->
+      chatroom = Chatrooms.findOne({link:link})
+      messageLength = chatroom.messages.length
+      if messageLength
+        $target.animate
+          scrollTop: $target.height() * 10
+        , 300
 
 Template.chat2.events "keydown .chat_input": (event) ->
   if event.which is 13
@@ -95,6 +108,19 @@ Template.chat2.events "keydown .chat_input": (event) ->
       Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
 
       $(thisId).find('.chat_input').val('')
+      $target = $(thisId).find('.panel-body-style')
+      $target.animate
+        scrollTop: $target.height() * 10
+      , 300
+
+      Deps.autorun ->
+        chatroom = Chatrooms.findOne({link:link})
+        messageLength = chatroom.messages.length
+        if messageLength
+          $target.animate
+            scrollTop: $target.height() * 10
+          , 300
+
 
 Template.chat2.events "click .icon_minim": (e) ->
   cleanId = this.toString()

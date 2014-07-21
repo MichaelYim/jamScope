@@ -31,51 +31,57 @@ Template.profilelist.events "click .profileListUnit": (e) ->
 Template.profilelist.events "click .openChat": (e) ->
   thisId = this._id
   myDoc = Meteor.user()
+  myDocId = myDoc._id
   Partner = Meteor.users.findOne(thisId)
   link = [myDoc._id, thisId].sort()
   link = link[0].concat(link[1])
-
-  #chatroom does not exist yet
   if Chatrooms.find({link:link}).fetch().length == 0
+    insertInfo =
+      "user1": myDocId,
+      "user2": thisId,
+      "link": link,
+      "messages": []
+    Meteor.call 'insertChatroom' ,insertInfo, (error, result) ->
+      if result
+        sessionArray = Session.get("chatBoxArray")
+        if _.contains(sessionArray, thisId) == false
+          if sessionArray.length >= 3
+            sessionArray.shift()
+            sessionArray.push(thisId)
+            Session.set("chatBoxArray", sessionArray)
+          else
+            sessionArray.push(thisId)
+            Session.set("chatBoxArray", sessionArray)
+        else
+
     ##create in your own User Document first
-    newChatPartnersList = myDoc.profile.chatPartners
-    if _.contains(newChatPartnersList, thisId)
-      console.log "already in partnersList"
-    else
-      newChatPartnersList.push(thisId)
-      currentTarget = Meteor.user()
-      updateInfo =
-        "profile.chatPartners": newChatPartnersList
-      Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
-
-
-
-
-    ##create in the other person's User Document
-    otherChatPartnersList = Partner.profile.chatPartners
-    if _.contains(otherChatPartnersList, myDoc._id)
-      console.log "they have it already"
-    else
-      otherChatPartnersList.push(myDoc._id)
-      x = otherChatPartnersList
-      currentTarget = Meteor.users.findOne(thisId)
-      updateInfo =
-        "profile.chatPartners": otherChatPartnersList
-      Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
-        console.log result
-
-
-
-  sessionArray = Session.get("chatBoxArray")
-  if _.contains(sessionArray, thisId) == false
-    if sessionArray.length >= 3
-      sessionArray.shift()
-      sessionArray.push(thisId)
-      Session.set("chatBoxArray", sessionArray)
-    else
-      sessionArray.push(thisId)
-      Session.set("chatBoxArray", sessionArray)
+  newChatPartnersList = myDoc.profile.chatPartners
+  if _.contains(newChatPartnersList, thisId)
+    console.log "already in partnersList"
   else
+    newChatPartnersList.push(thisId)
+    currentTarget = Meteor.user()
+    updateInfo =
+      "profile.chatPartners": newChatPartnersList
+    Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
+
+  ##create in the other person's User Document
+  otherChatPartnersList = Partner.profile.chatPartners
+  if _.contains(otherChatPartnersList, myDoc._id)
+    console.log "they have it already"
+  else
+    otherChatPartnersList.push(myDoc._id)
+    x = otherChatPartnersList
+    currentTarget = Meteor.users.findOne(thisId)
+    updateInfo =
+      "profile.chatPartners": otherChatPartnersList
+    Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
+
+
+
+
+
+
 
 
 
