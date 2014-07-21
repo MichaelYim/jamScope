@@ -53,6 +53,17 @@ Template.profilelist.events "click .openChat": (e) ->
             sessionArray.push(thisId)
             Session.set("chatBoxArray", sessionArray)
         else
+  else
+    sessionArray = Session.get("chatBoxArray")
+    if _.contains(sessionArray, thisId) == false
+      if sessionArray.length >= 3
+        sessionArray.shift()
+        sessionArray.push(thisId)
+        Session.set("chatBoxArray", sessionArray)
+      else
+        sessionArray.push(thisId)
+        Session.set("chatBoxArray", sessionArray)
+    else
 
     ##create in your own User Document first
   newChatPartnersList = myDoc.profile.chatPartners
