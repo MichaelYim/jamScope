@@ -67,6 +67,9 @@ Template.edit_form.events "submit form": (e) ->
   Meteor.call "deleteInstrumentsInCollection", (err, response) ->
     console.log(response)
 
+  Router.go("home")
+  n = noty({text: 'Your profile has been updated', type: 'success', layout:'center', timeout: 2500})
+
 
   if $("#e9").val() == null
       updateList = []
