@@ -28,17 +28,58 @@ Template.profilelist.events "click .profileListUnit": (e) ->
       data:
         thisData
 
+Template.profilelist.events "click .openChat": (e) ->
+  thisId = this._id
+  myDoc = Meteor.user()
+  Partner = Meteor.users.findOne(thisId)
+  link = [myDoc._id, thisId].sort()
+  link = link[0].concat(link[1])
+
+  #chatroom does not exist yet
+  if Chatrooms.find({link:link}).fetch().length == 0
+    ##create in your own User Document first
+    newChatPartnersList = myDoc.profile.chatPartners
+    if _.contains(newChatPartnersList, thisId)
+      console.log "already in partnersList"
+    else
+      newChatPartnersList.push(thisId)
+      currentTarget = Meteor.user()
+      updateInfo =
+        "profile.chatPartners": newChatPartnersList
+      Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
 
 
-  # console.log $("#e9").val()
-
-  # current = Meteor.userId()
-  # updateTemporary =
-  #   if $("#e9").val() == null
-  #     "profile.instrumentsPlayedTemporary":[]
-  #   else
-  #     "profile.instrumentsPlayedTemporary":$("#e9").val().sort()
 
 
-  # Meteor.users.update current,
-  #   $set:updateTemporary
+    ##create in the other person's User Document
+    otherChatPartnersList = Partner.profile.chatPartners
+    if _.contains(otherChatPartnersList, myDoc._id)
+      console.log "they have it already"
+    else
+      otherChatPartnersList.push(myDoc._id)
+      x = otherChatPartnersList
+      currentTarget = Meteor.users.findOne(thisId)
+      updateInfo =
+        "profile.chatPartners": otherChatPartnersList
+      Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
+        console.log result
+
+
+
+  sessionArray = Session.get("chatBoxArray")
+  if _.contains(sessionArray, thisId) == false
+    if sessionArray.length >= 3
+      sessionArray.shift()
+      sessionArray.push(thisId)
+      Session.set("chatBoxArray", sessionArray)
+    else
+      sessionArray.push(thisId)
+      Session.set("chatBoxArray", sessionArray)
+  else
+
+
+
+
+
+
+

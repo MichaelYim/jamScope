@@ -9,17 +9,17 @@ Template.chatlist.helpers
 
 
 Template.chatlist.events "click .user-tab": (e) ->
-  link = this._id
+  thisId = this._id
 
   sessionArray = Session.get("chatBoxArray")
 
-  if _.contains(sessionArray, link) == false
+  if _.contains(sessionArray, thisId) == false
     if sessionArray.length >= 3
       sessionArray.shift()
-      sessionArray.push(link)
+      sessionArray.push(thisId)
       Session.set("chatBoxArray", sessionArray)
     else
-      sessionArray.push(link)
+      sessionArray.push(thisId)
       Session.set("chatBoxArray", sessionArray)
   else
 
