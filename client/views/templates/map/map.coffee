@@ -24,6 +24,7 @@ Template.map.rendered = ->
 
     map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
 
+
     google.maps.event.addListener map, "click", (e) ->
       placeMarker e.latLng, map
 
@@ -59,6 +60,7 @@ Template.map.rendered = ->
         makeModal marker, nameObject
 
     console.log arrayOfMarkers
+
 
   placeMarker = (position, map) ->
     ##add if statement for people adding forr the first time

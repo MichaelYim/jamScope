@@ -1,3 +1,5 @@
+
+
 Template.chatlist.helpers
   existingChatList: ->
     idList = Meteor.user().profile.chatPartners
@@ -6,6 +8,34 @@ Template.chatlist.helpers
       nameList.push(Meteor.users.findOne(idList[i]))
     nameList
 
+  notify: ->
+    thisId = this._id
+    userId = Meteor.user()._id
+    link = [userId,thisId].sort()
+    link = link[0].concat(link[1])
+    chatObject = Chatrooms.findOne({link:link})
+    sessionArray = Session.get("chatBoxArray")
+    if userId == chatObject.user1
+
+      if _.contains(sessionArray, chatObject.user2)
+        updateInfo =
+          "notification1":0
+        currentTarget = Chatrooms.findOne({link:link})
+        console.log "from list"
+        console.log currentTarget
+        Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
+
+      chatObject.notification1 == 1
+
+    else if userId == chatObject.user2
+
+      if _.contains(sessionArray, chatObject.user1)
+        updateInfo =
+          "notification2":0
+        currentTarget = Chatrooms.findOne({link:link})
+        Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
+
+      chatObject.notification2 == 1
 
 
 Template.chatlist.events "click .user-tab": (e) ->

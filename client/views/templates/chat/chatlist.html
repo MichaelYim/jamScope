@@ -16,9 +16,14 @@
           <div class="col-md-3">
             <img class ="chatlist-pic" src={{this.profile.picturesquare}}>
           </div>
-          <span class="chatlist-name col-md-6">
+          <span class="chatlist-name col-md-7">
             {{this.profile.name}}
           </span>
+          {{#if notify}}
+            <div class="notification col-md-1">
+              <img src ="images/exclamation.ico">
+            </div>
+          {{/if}}
          </div>
         {{/each}}
       </div>

@@ -11,8 +11,12 @@ Meteor.methods deleteInstrumentsInCollection: ->
   Instruments.remove({owner: Meteor.userId()})
 
 Meteor.methods updateChatrooms: (updateInfo, currentTarget) ->
-  Chatrooms.update currentTarget,
-  $set:updateInfo
+  console.log "updateInfo", updateInfo
+  console.log "currentTarget", currentTarget
+  Chatrooms.update currentTarget, $set:updateInfo
+
+
+
 
 Meteor.methods insertChatroom: (insertInfo) ->
   Chatrooms.insert insertInfo
