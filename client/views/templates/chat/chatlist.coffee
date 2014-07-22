@@ -21,8 +21,6 @@ Template.chatlist.helpers
         updateInfo =
           "notification1":0
         currentTarget = Chatrooms.findOne({link:link})
-        console.log "from list"
-        console.log currentTarget
         Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
 
       chatObject.notification1 == 1

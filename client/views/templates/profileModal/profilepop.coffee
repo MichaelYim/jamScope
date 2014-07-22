@@ -61,6 +61,8 @@ Template.profilepop.events
         "user2": thisId,
         "link": link,
         "messages": []
+        "notification1":0
+        "notification2":0
       Meteor.call 'insertChatroom' ,insertInfo, (error, result) ->
         if result
           sessionArray = Session.get("chatBoxArray")
