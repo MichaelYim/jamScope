@@ -12,7 +12,7 @@
       <div class="chatlisting">
         {{#each existingChatList}}
          <div class="user-tab row" id="chatlist-{{this._id}}">
-          <div class="col-md-1"></div>
+          <div class=""></div>
           <div class="col-md-3">
             <img class ="chatlist-pic" src={{this.profile.picturesquare}}>
           </div>
@@ -20,7 +20,7 @@
             {{this.profile.name}}
           </span>
           {{#if notify}}
-            <div class="notification col-md-1">
+            <div class="notification col-md-2">
               <img src ="images/exclamation.ico">
             </div>
           {{/if}}

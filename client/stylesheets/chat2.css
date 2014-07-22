@@ -33,7 +33,6 @@
 @media (max-width: 1295px) {
   .chat-foot{
     left:0;
-    visibility:hidden
   }
 }
 .chat2 .chat-msg-display{
@@ -146,6 +145,7 @@
 
 .user-tab {
   padding: 5px 5px;
+  cursor: pointer; cursor: hand;
 }
 
 .list-minimize-button{
