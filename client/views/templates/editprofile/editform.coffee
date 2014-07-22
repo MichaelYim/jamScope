@@ -52,6 +52,9 @@ Template.edit_form.events "submit form": (e) ->
       "profile.aboutMe": $target.find("[name=aboutMe]").val()
       "profile.favoriteArtists": $target.find("[name=favoriteArtists]").val()
       "profile.instrumentsPlayed": []
+      "profile.video1": $target.find("[name=video1]").val()
+      "profile.video2": $target.find("[name=video2]").val()
+
 
   else
     updateInfo =
@@ -60,6 +63,8 @@ Template.edit_form.events "submit form": (e) ->
       "profile.aboutMe": $target.find("[name=aboutMe]").val()
       "profile.favoriteArtists": $target.find("[name=favoriteArtists]").val()
       "profile.instrumentsPlayed": $("#e9").val().sort()
+      "profile.video1": $target.find("[name=video1]").val()
+      "profile.video2": $target.find("[name=video2]").val()
 
     console.log updateInfo
   Meteor.call 'updateThis', updateInfo, currentTarget, (error, result) ->

@@ -17,6 +17,53 @@ Template.profilepop.helpers
     object = object[0]
     following = object.profile.following.length
 
+  video1Exists: ->
+    y = this._id
+    y = y.toString()
+    object = Meteor.users.find(y).fetch()
+    object = object[0]
+    if object.profile.video1 != ""
+      true
+    else
+      false
+
+  video2Exists: ->
+    y = this._id
+    y = y.toString()
+    object = Meteor.users.find(y).fetch()
+    object = object[0]
+    if object.profile.video2 != ""
+      true
+    else
+      false
+
+  eitherExists: ->
+    y = this._id
+    y = y.toString()
+    object = Meteor.users.find(y).fetch()
+    object = object[0]
+    if object.profile.video1 == "" && object.profile.video2 ==""
+      $(".videoList")
+      false
+    else
+      true
+
+  video1: ->
+    y = this._id
+    y = y.toString()
+    object = Meteor.users.find(y).fetch()
+    object = object[0]
+    full = object.profile.video1
+    full.substring(32)
+
+  video2: ->
+    y = this._id
+    y = y.toString()
+    object = Meteor.users.find(y).fetch()
+    object = object[0]
+    full = object.profile.video2
+    full.substring(32)
+
 Template.profilepop.events
   "click .follow-button": (e) ->
     e.preventDefault()

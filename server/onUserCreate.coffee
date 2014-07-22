@@ -12,8 +12,8 @@ Accounts.onCreateUser (options, user) ->
     options.profile.long = null
     options.profile.fans = []
     options.profile.following = []
-    options.profile.video1 = null
-    options.profile.video2 = null
+    options.profile.video1 = ""
+    options.profile.video2 = ""
     options.profile.favoriteArtists = null
     options.profile.chatPartners = []
 

@@ -13,12 +13,16 @@
   margin-right:auto;
   padding:20px;
   width: 60%;
-  min-height:600px;
+  min-height:0;
 
 }
 
 .profilePanel {
   margin-bottom:10px;
+}
+
+.profile-label {
+  font-size:100%;
 }
 
 

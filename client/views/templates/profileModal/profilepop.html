@@ -53,7 +53,7 @@
             </h2>
             <p>
               <strong>Following</strong>
-            </p><button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile</button>
+            </p><button class="btn btn-info btn-block"><span class="fa fa-thumb-tack"></span></button>
           </div><!--/col-->
         </div>
         <div class="row">
@@ -64,15 +64,21 @@
       </div><!--/row-->
     </div><!--/panel-body-->
   </div><!--/panel-->
-  <div class="pull-central panel panel-default panel-body videoList">
-    <div class="video-container">
-      <iframe frameborder="0" height="315" src="//www.youtube.com/embed/jyMBspET9kI" width="600"></iframe>
-    </div>
-    <br>
-    <div class="video-container">
-      <iframe class="pull-central"
-      frameborder="0" height="315" src="//www.youtube.com/embed/pUJGjWRFtno" width="600"></iframe>
-    </div>
-  </div>
+    {{#if eitherExists}}
+      <div class="pull-central panel panel-default panel-body videoList">
+        {{#if video1Exists}}
+          <div class="video-container">
+            <iframe frameborder="0" height="315" src="//www.youtube.com/embed/{{video1}}" width="600"></iframe>
+          </div>
+        {{/if}}
+        {{#if video2Exists}}
+          <br>
+          <div class="video-container">
+            <iframe class="pull-central"
+            frameborder="0" height="315" src="//www.youtube.com/embed/{{video2}}" width="600"></iframe>
+          </div>
+        {{/if}}
+      </div>
+    {{/if}}
 </div>
 </template>
