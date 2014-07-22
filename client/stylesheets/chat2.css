@@ -35,6 +35,20 @@
     left:0;
   }
 }
+
+@media (max-width: 750px) {
+  .chat-foot{
+    left:0;
+    visibility:hidden;
+  }
+
+  #chatlist-box{
+    visibility:hidden;
+
+  }
+
+}
+
 .chat2 .chat-msg-display{
   height:300px;
 

@@ -59,7 +59,6 @@ Template.map.rendered = ->
 
         makeModal marker, nameObject
 
-    console.log arrayOfMarkers
 
 
   placeMarker = (position, map) ->
