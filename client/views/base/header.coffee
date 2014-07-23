@@ -2,6 +2,8 @@ Template.header.rendered = ->
   Session.set("chatBoxArray", [])
   # @sessionArray = []
 
+
+
 Template.header.helpers
   activeRouteClass: () ->
     args = Array.prototype.slice.call(arguments, 0)
@@ -11,5 +13,4 @@ Template.header.helpers
       Router.current() and Router.current().route.name is name
 
     active and 'active'
-
 

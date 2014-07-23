@@ -1,8 +1,12 @@
+# @currentTarget = ""
+# @updateInfo = ""
 Template.profilelist.rendered = ->
   Crater.dismissOverlay('.crater-overlay')
 
   if !Meteor.user()
     $('.well').attr("title", "sign in to chat!")
+
+
 
 Template.profilelist.helpers
 
@@ -30,7 +34,8 @@ Template.profilelist.events "click .profileListUnit": (e) ->
 
 Template.profilelist.events "click .openChat": (e) ->
   thisId = this._id
-  myDoc = Meteor.user()
+  cutId = Meteor.user()._id
+  myDoc = Meteor.users.findOne(cutId)
   myDocId = myDoc._id
   Partner = Meteor.users.findOne(thisId)
   link = [myDoc._id, thisId].sort()
@@ -72,11 +77,21 @@ Template.profilelist.events "click .openChat": (e) ->
   if _.contains(newChatPartnersList, thisId)
     console.log "already in partnersList"
   else
-    newChatPartnersList.push(thisId)
+
     currentTarget = Meteor.user()
+    currentTargetId = Meteor.user()._id
+    console.log("This is the user:")
+    console.log(currentTarget)
     updateInfo =
-      "profile.chatPartners": newChatPartnersList
-    Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
+      "profile.chatPartners": thisId
+    console.log("This is the updateInfo:")
+    console.log(updateInfo)
+    Meteor.users.update({_id: currentTargetId}, {$addToSet:{ "profile.chatPartners":thisId}})
+    # # Meteor.call 'updateThisAddToSet' ,updateInfo, currentTarget, (error, result) ->
+    #   if result == 0
+    #     Meteor.users.update Meteor.user()._id,
+    #       $addToSet:thisId
+
 
   ##create in the other person's User Document
   otherChatPartnersList = Partner.profile.chatPartners
@@ -88,8 +103,8 @@ Template.profilelist.events "click .openChat": (e) ->
     currentTarget = Meteor.users.findOne(thisId)
     updateInfo =
       "profile.chatPartners": otherChatPartnersList
-    Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
-
+    Meteor.call 'updateThisSecondary' ,updateInfo, currentTarget, (error, result) ->
+      console.log "this is from other isde " + result
 
 
 

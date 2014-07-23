@@ -54,7 +54,7 @@ Template.profilepop.helpers
     object = Meteor.users.find(y).fetch()
     object = object[0]
     full = object.profile.video1
-    full.substring(32)
+    full.substring(full.length-11)
 
   video2: ->
     y = this._id
@@ -62,7 +62,7 @@ Template.profilepop.helpers
     object = Meteor.users.find(y).fetch()
     object = object[0]
     full = object.profile.video2
-    full.substring(32)
+    full.substring(full.length-11)
 
 Template.profilepop.events
   "click .follow-button": (e) ->
