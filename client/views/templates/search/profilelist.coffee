@@ -75,23 +75,14 @@ Template.profilelist.events "click .openChat": (e) ->
     ##create in your own User Document first
   newChatPartnersList = myDoc.profile.chatPartners
   if _.contains(newChatPartnersList, thisId)
-    console.log "already in partnersList"
+
   else
 
     currentTarget = Meteor.user()
     currentTargetId = Meteor.user()._id
-    console.log("This is the user:")
-    console.log(currentTarget)
     updateInfo =
       "profile.chatPartners": thisId
-    console.log("This is the updateInfo:")
-    console.log(updateInfo)
     Meteor.users.update({_id: currentTargetId}, {$addToSet:{ "profile.chatPartners":thisId}})
-    # # Meteor.call 'updateThisAddToSet' ,updateInfo, currentTarget, (error, result) ->
-    #   if result == 0
-    #     Meteor.users.update Meteor.user()._id,
-    #       $addToSet:thisId
-
 
   ##create in the other person's User Document
   otherChatPartnersList = Partner.profile.chatPartners

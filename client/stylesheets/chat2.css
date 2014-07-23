@@ -131,7 +131,7 @@
   bottom:0;
   position:fixed;
   right:0;
-  overflow-y:scroll;
+  /*overflow-y:scroll;*/
 }
 
 #chatlist-body{

@@ -3,6 +3,18 @@ Template.profilepop.helpers
   getInstrumentsPop: ->
     Instruments.find({owner:"#{this._id}"})
 
+  notMine: ->
+    y = this._id
+    y = y.toString()
+    object = Meteor.users.findOne(y)
+    object._id != Meteor.user()._id
+
+  myProfile: ->
+    y = this._id
+    y = y.toString()
+    object = Meteor.users.findOne(y)
+    object._id == Meteor.user()._id
+
   fans: ->
     y = this._id
     y = y.toString()
@@ -93,6 +105,9 @@ Template.profilepop.events
   "click #closeModalGlyph": (e) ->
     Crater.dismissOverlay('.crater-overlay')
 
+  "click .modalEditButton": (e) ->
+    Router.go("edit_form")
+
 Template.profilepop.events
   "click .modalChatButton": (e) ->
     Crater.dismissOverlay('.crater-overlay')
@@ -137,18 +152,19 @@ Template.profilepop.events
       ##create in your own User Document first
     newChatPartnersList = myDoc.profile.chatPartners
     if _.contains(newChatPartnersList, thisId)
-      console.log "already in partnersList"
+
     else
-      newChatPartnersList.push(thisId)
       currentTarget = Meteor.user()
+      currentTargetId = Meteor.user()._id
       updateInfo =
-        "profile.chatPartners": newChatPartnersList
-      Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
+        "profile.chatPartners": thisId
+      Meteor.users.update({_id: currentTargetId}, {$addToSet:{ "profile.chatPartners":thisId}})
+
 
     ##create in the other person's User Document
     otherChatPartnersList = Partner.profile.chatPartners
     if _.contains(otherChatPartnersList, myDoc._id)
-      console.log "they have it already"
+
     else
       otherChatPartnersList.push(myDoc._id)
       x = otherChatPartnersList

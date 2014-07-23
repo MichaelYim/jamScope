@@ -42,11 +42,6 @@ Template.chat2.helpers
     user = Meteor.users.find(x).fetch()
     user[0].profile.picturesquare
 
-Template.chat2.events "change .panel-body-style": (e)->
-  console.log this
-  console.log "this changed"
-  console.log e
-
 Template.chat2.events "click .msg-btn": (e) ->
   e.preventDefault()
   cleanId = this.toString()
@@ -190,8 +185,6 @@ Template.chat2.events "keydown .chat_input": (event) ->
             $target.animate
               scrollTop: $target.height() * 30000
             , 300
-          console.log $target.height()
-          console.log "the one on top"
 
 
 Template.chat2.events "click .icon_minim": (e) ->

@@ -14,3 +14,9 @@ Template.header.helpers
 
     active and 'active'
 
+Template.header.events
+  "click .nav-map-button": (e) ->
+    Crater.dismissOverlay('.crater-overlay')
+
+  "click .nav-search-button": (e) ->
+    Crater.dismissOverlay('.crater-overlay')
