@@ -38,7 +38,6 @@ Router.map () ->
         # Meteor.subscribe('users')
         Meteor.subscribe('instruments')
         Meteor.subscribe('instrumentList')
-        Meteor.subscribe('chatrooms')
       ]
     data: ->
       Meteor.user()

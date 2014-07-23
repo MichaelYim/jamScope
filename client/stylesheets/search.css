@@ -3,6 +3,29 @@
 
 }
 
+.searchbar-text {
+  margin-bottom:3px;
+
+}
+
+.searchbar-left {
+  padding-right:0;
+
+}
+
+.searchbar-right {
+  padding-left:0;
+}
+
+a{
+ cursor: pointer; cursor: hand;
+}
+
+.dropbar {
+  padding-right: 4px;
+
+}
+
 .listpic-cropper {
   border:2px solid #428bca;
   border-radius:100px;
@@ -45,7 +68,10 @@ body .well {
   margin-bottom: 14px;
   border:1px solid white;
   background-color:rgba(0, 0, 0, 0.5);
+}
 
+body .well:hover {
+  background-color:rgba(255, 255, 255, 0.3);
 
 }
 

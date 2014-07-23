@@ -21,8 +21,14 @@
   margin-bottom:10px;
 }
 
-.profile-label {
+.profile-labels2 {
   font-size:100%;
+
+}
+
+.label-default{
+  background-color:rgb(79, 34, 186);
+
 }
 
 

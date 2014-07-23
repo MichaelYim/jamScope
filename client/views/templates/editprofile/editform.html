@@ -8,7 +8,7 @@
     <div class="form-group">
       <label class="col-md-4 col-sm-4 col-xs-4 col-lg-4 control-label" for="name">name</label>
       <div class="col-md-4">
-      <input id="name" name="name" value="{{currentUser.profile.name}}" type="text" placeholder="" class="form-control input-md" required="">
+      <input id="name" name="name" value="{{currentUser.profile.name}}" type="text" placeholder="What's your name?" class="form-control input-md" required="">
 
       </div>
     </div>
@@ -50,10 +50,10 @@
     <!-- Button Drop Down -->
     <br>
     <div class="form-group">
-      <label class="col-md-4 control-label" for="addinstruments">add instruments</label>
+      <label class="col-md-4 control-label" for="addinstruments">instruments played</label>
       <div class="col-md-4">
 
-        <select multiple=""  name="e9" id="e9" class="populate select2-offscreen form-control" tabindex="-1">
+        <select placeholder = "What instruments do you play?" multiple=""  name="e9" id="e9" class="populate select2-offscreen form-control" tabindex="-1">
 
           {{#each instrumentSelection}}
             <option val={{_id}}>{{name}}</option>
@@ -78,29 +78,22 @@
     </div>
     {{/each}}
 
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="video1">video 1</label>
-      <div class="col-md-4">
-      <input name="video1" value="{{currentUser.profile.video1}}" type="text" placeholder="youtube URL (optional)" class="form-control input-md">
 
+    <!-- <div class="edit-vid-box"> -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="video1">video 1</label>
+        <div class="col-md-4">
+        <input name="video1" value="{{currentUser.profile.video1}}" type="text" placeholder="youtube URL (optional)" class="form-control input-md">
+
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="video2">video 2</label>
-      <div class="col-md-4">
-      <input name="video2" value="{{currentUser.profile.video2}}" type="text" placeholder="youtube URL (optional)" class="form-control input-md">
-
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="video2">video 2</label>
+        <div class="col-md-4">
+        <input name="video2" value="{{currentUser.profile.video2}}" type="text" placeholder="youtube URL (optional)" class="form-control input-md">
+        </div>
       </div>
-    </div>
-
-
-
-
-
-
-
-
-    <!-- Button -->
+    <!-- </div> -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="edit_submit"></label>
       <div class="col-md-4">

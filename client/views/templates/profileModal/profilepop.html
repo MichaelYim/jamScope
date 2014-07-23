@@ -31,7 +31,7 @@
           <strong>About:</strong> {{profile.aboutMe}}
         </p>
         <p class="instrumentTags">
-          <strong>Instruments:</strong> {{#each getInstrumentsPop}} <span class="label label-info tags profile-labels">{{type}}: {{level}}</span> {{/each}}
+          <strong>Instruments:</strong> {{#each getInstrumentsPop}} <span class="label label-default tags profile-labels2">{{type}}: {{level}}</span> {{/each}}
         </p>
         <p>
           <strong>Favorite Artists:</strong> {{this.profile.favoriteArtists}}
@@ -39,31 +39,40 @@
         <div class="row">
           <div class="col-sm-6">
             <h2>
-
-              <strong class="fan-number">{{fans}}</strong>
-
+              <div class="col-xs-offset-6 col-sm-offset-0 ">
+                <strong class="fan-number">{{fans}}</strong>
+              </div>
             </h2>
             <p>
-              <strong>Fans</strong>
+              <div class="col-xs-offset-5 col-sm-offset-0 ">
+                <strong>Fans</strong>
+              </div>
             </p><button class="btn btn-success btn-block follow-button"><span class="fa fa-plus-circle"></span> Follow</button><br>
           </div>
           <div class="col-sm-6">
             <h2>
-              <strong>{{following}}</strong>
+              <div class="col-xs-offset-6 col-sm-offset-0 ">
+                <strong>{{following}}</strong>
+              </div>
             </h2>
             <p>
-              <strong>Following</strong>
-            </p><button class="btn btn-info btn-block"><span class="fa fa-thumb-tack"></span></button>
-          </div><!--/col-->
+
+              <div class="col-xs-offset-5 col-sm-offset-0 ">
+                <strong>Following</strong>
+              </div>
+            </p>
+            <!-- <button class="btn btn-info btn-block"><span class="fa fa-thumb-tack"></span></button> -->
+            <button type="button" class="btn btn-primary btn-block modalChatButton"><span class="fa fa-wechat"></span> Chat</button>
+          </div>
         </div>
         <div class="row">
-          <div class="col-xs-6">
+          <!-- <div class="col-xs-6">
             <button type="button" class="btn btn-primary btn-block modalChatButton"><span class="fa fa-wechat"></span> Chat</button>
-          </div><!--/col-->
+          </div> -->
         </div>
-      </div><!--/row-->
-    </div><!--/panel-body-->
-  </div><!--/panel-->
+      </div>
+    </div>
+  </div>
     {{#if eitherExists}}
       <div class="pull-central panel panel-default panel-body videoList">
         {{#if video1Exists}}
