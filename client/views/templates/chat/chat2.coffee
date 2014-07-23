@@ -5,7 +5,7 @@ Template.chat2.rendered = ->
     thisId = thisId.toString()
     $target = $(thisId).find('.panel-body-style')
     $target.animate
-      scrollTop: $target.height() * 3000
+      scrollTop: $target.height() * 30000
     , 0
 
     link = [Meteor.user()._id, cleanId].sort()
@@ -18,7 +18,7 @@ Template.chat2.rendered = ->
       messageLength = chatroom.messages.length
       if messageLength
         $target.animate
-          scrollTop: $target.height() * 3000
+          scrollTop: $target.height() * 30000
         , 300
 
 Template.chat2.helpers
@@ -79,7 +79,7 @@ Template.chat2.events "click .msg-btn": (e) ->
       $(thisId).find('.chat_input').val('')
       $target = $(thisId).find('.panel-body-style')
       $target.animate
-        scrollTop: $target.height() * 3000
+        scrollTop: $target.height() * 30000
       , 300
 
       Deps.autorun ->
@@ -87,7 +87,7 @@ Template.chat2.events "click .msg-btn": (e) ->
         messageLength = chatroom.messages.length
         if messageLength
           $target.animate
-            scrollTop: $target.height() * 3000
+            scrollTop: $target.height() * 30000
           , 300
 
     else if userId == object[0].user2
@@ -108,7 +108,7 @@ Template.chat2.events "click .msg-btn": (e) ->
       $(thisId).find('.chat_input').val('')
       $target = $(thisId).find('.panel-body-style')
       $target.animate
-        scrollTop: $target.height() * 3000
+        scrollTop: $target.height() * 30000
       , 300
 
       Deps.autorun ->
@@ -116,7 +116,7 @@ Template.chat2.events "click .msg-btn": (e) ->
         messageLength = chatroom.messages.length
         if messageLength
           $target.animate
-            scrollTop: $target.height() * 3000
+            scrollTop: $target.height() * 30000
           , 300
 
 Template.chat2.events "keydown .chat_input": (event) ->
@@ -151,7 +151,7 @@ Template.chat2.events "keydown .chat_input": (event) ->
         $(thisId).find('.chat_input').val('')
         $target = $(thisId).find('.panel-body-style')
         $target.animate
-          scrollTop: $target.height() * 3000
+          scrollTop: $target.height() * 30000
         , 300
 
         Deps.autorun ->
@@ -159,7 +159,7 @@ Template.chat2.events "keydown .chat_input": (event) ->
           messageLength = chatroom.messages.length
           if messageLength
             $target.animate
-              scrollTop: $target.height() * 3000
+              scrollTop: $target.height() * 30000
             , 300
 
       else if userId == object[0].user2
@@ -180,7 +180,7 @@ Template.chat2.events "keydown .chat_input": (event) ->
         $(thisId).find('.chat_input').val('')
         $target = $(thisId).find('.panel-body-style')
         $target.animate
-          scrollTop: $target.height() * 3000
+          scrollTop: $target.height() * 30000
         , 300
 
         Deps.autorun ->
@@ -188,7 +188,7 @@ Template.chat2.events "keydown .chat_input": (event) ->
           messageLength = chatroom.messages.length
           if messageLength
             $target.animate
-              scrollTop: $target.height() * 3000
+              scrollTop: $target.height() * 30000
             , 300
           console.log $target.height()
           console.log "the one on top"

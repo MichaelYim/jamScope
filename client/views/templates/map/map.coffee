@@ -1,4 +1,7 @@
-makeModal = (marker, nameObject)->
+makeModal = (marker, nameObject, map, infowindow)->
+      google.maps.event.addListener marker, "mouseover", ->
+        infowindow.open(marker.get('map'), marker)
+
       google.maps.event.addListener marker, "click", ->
         Crater.overlay "profilepop",
           data:
@@ -54,10 +57,10 @@ Template.map.rendered = ->
         nameObject = listOfUsers[i]
         contentStr = "<div style='height:auto, width:auto'>#{name}</div>"
         infowindow = new google.maps.InfoWindow(content: contentStr)
-        infowindow.open(map, marker)
+
         arrayOfMarkers.push(marker)
 
-        makeModal marker, nameObject
+        makeModal marker, nameObject, marker, infowindow
 
 
 
