@@ -14,3 +14,9 @@ body {
 
   overflow-y: scroll
 }
+
+.spinner {
+  margin-top:20%;
+  margin-left:45%;
+}
+

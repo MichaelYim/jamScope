@@ -167,7 +167,7 @@
 
 .user-tab:hover {
   background-color:rgb(221, 221, 238);
-
+  font-weight:bolder;
 }
 
 .list-minimize-button{

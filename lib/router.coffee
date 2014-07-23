@@ -1,6 +1,7 @@
 Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading',
+  notFoundTemplate: 'notFoundPage',
   waitOn: ->
     [
       Meteor.subscribe 'users'

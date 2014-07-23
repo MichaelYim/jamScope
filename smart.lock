@@ -10,7 +10,8 @@
       "accounts-ui-bootstrap-3": {},
       "crater-modals": {},
       "moment": {},
-      "kadira": {}
+      "kadira": {},
+      "spin": {}
     },
     "packages": {
       "iron-router": {
@@ -57,6 +58,11 @@
         "git": "https://github.com/meteorhacks/kadira.git",
         "tag": "v2.4.9",
         "commit": "8bb902989917522822a0897117672ae858c23427"
+      },
+      "spin": {
+        "git": "https://github.com/SachaG/meteor-spin.git",
+        "tag": "v2.0.3",
+        "commit": "23c1145472a710d5c93fa4beaca4e576caeb2f24"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
