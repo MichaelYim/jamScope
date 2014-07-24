@@ -4,6 +4,7 @@ jamscope.meteor.com
 * CoffeeScript/Javascript
 * MongoDB - Documenet Database
 * Google Maps API V.3 - Map Functionality
+* Facebook API
 * Handlebars.js
 * Select2
 * Noty
