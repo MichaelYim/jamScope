@@ -1,3 +1,5 @@
+by: Michael Yim
+
 jamscope.meteor.com
 ========
 * Meteor.js - Javascript or Coffeescript in Frontend and Backend
