@@ -1,5 +1,3 @@
-jamScope
-
 jamscope2.meteor.com
 ========
 * Meteor.js (Javascript or Coffeescript in Frontend and Backend)
