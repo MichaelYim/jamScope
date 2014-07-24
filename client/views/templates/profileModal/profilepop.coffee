@@ -29,6 +29,13 @@ Template.profilepop.helpers
     object = object[0]
     following = object.profile.following.length
 
+  followingAlready: ->
+    y = this._id
+    y = y.toString()
+    object = Meteor.users.find(y).fetch()
+    object = object[0]
+    _.contains(object.profile.fans, Meteor.user()._id)
+
   video1Exists: ->
     y = this._id
     y = y.toString()
@@ -152,7 +159,7 @@ Template.profilepop.events
       ##create in your own User Document first
     newChatPartnersList = myDoc.profile.chatPartners
     if _.contains(newChatPartnersList, thisId)
-
+      console.log "you have their Id"
     else
       currentTarget = Meteor.user()
       currentTargetId = Meteor.user()._id
@@ -164,11 +171,11 @@ Template.profilepop.events
     ##create in the other person's User Document
     otherChatPartnersList = Partner.profile.chatPartners
     if _.contains(otherChatPartnersList, myDoc._id)
-
+      console.log "they have your Id"
     else
       otherChatPartnersList.push(myDoc._id)
-      x = otherChatPartnersList
       currentTarget = Meteor.users.findOne(thisId)
       updateInfo =
         "profile.chatPartners": otherChatPartnersList
       Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
+        console.log result + " this is the result from adding to their list"

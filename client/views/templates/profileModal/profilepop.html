@@ -47,7 +47,22 @@
               <div class="col-xs-offset-5 col-sm-offset-0 ">
                 <strong>Fans</strong>
               </div>
-            </p><button class="btn btn-success btn-block follow-button"><span class="fa fa-plus-circle"></span> Follow</button><br>
+
+            </p>
+            {{#if currentUser}}
+              {{#if notMine}}
+                {{#if followingAlready}}
+                  <button class="btn btn-warning btn-block unfollow-button"><span class="fa fa-minus-circle"></span> Unfollow</button><br>
+                {{else}}
+                  <button class="btn btn-success btn-block follow-button"><span class="fa fa-plus-circle"></span> Follow</button><br>
+                {{/if}}
+              {{/if}}
+              {{#if myProfile}}
+                <button class="btn btn-primary btn-block"><span class="fa fa-plus-circle"></span> Add Videos</button><br>
+              {{/if}}
+            {{else}}
+               <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Sign In to Follow!</button><br>
+            {{/if}}
           </div>
           <div class="col-sm-6">
             <h2>
@@ -61,11 +76,15 @@
                 <strong>Following</strong>
               </div>
             </p>
-            {{#if notMine}}
-              <button type="button" class="btn btn-primary btn-block modalChatButton"><span class="fa fa-wechat"></span> Chat</button>
-            {{/if}}
-            {{#if myProfile}}
-              <button type="button" class="btn btn-info btn-block modalEditButton"><span class="fa fa-gear"></span> Edit Profile</button>
+            {{#if currentUser}}
+              {{#if notMine}}
+                <button type="button" class="btn btn-primary btn-block modalChatButton"><span class="fa fa-wechat"></span> Chat</button>
+              {{/if}}
+              {{#if myProfile}}
+                <button type="button" class="btn btn-info btn-block modalEditButton"><span class="fa fa-gear"></span> Edit Profile</button>
+              {{/if}}
+            {{else}}
+              <button type="button" class="btn btn-primary btn-block "><span class="fa fa-gear"></span> Sign In to Chat!</button>
             {{/if}}
 
           </div>
