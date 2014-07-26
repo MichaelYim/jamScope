@@ -12,7 +12,7 @@ arrayOfMarkers = []
 Template.map.rendered = ->
   if !Meteor.user()
     $('#map-canvas').attr("title", "sign in to add your pin!")
-  Crater.dismissOverlay('.crater-overlay')
+
   GoogleMaps.init
     sensor: true #optional
     key: gmapskey #optional

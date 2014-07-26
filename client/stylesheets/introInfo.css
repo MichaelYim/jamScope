@@ -1,0 +1,26 @@
+.intro-box{
+  margin-top:100px;
+  height:400px;
+  width:600px;
+  background-color:white;
+
+}
+
+.intro-box h3{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.intro-box h4{
+  color:#025BA8;
+}
+
+@media (max-width: 700px) {
+  .intro-box{
+    height:50%;
+    width:60%;
+    min-height:280px;
+  }
+  }
+}
+

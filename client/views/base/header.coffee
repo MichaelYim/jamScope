@@ -1,6 +1,8 @@
 Template.header.rendered = ->
   Session.set("chatBoxArray", [])
   # @sessionArray = []
+  if !Meteor.user()
+    Crater.overlay "introInfo"
 
 
 
