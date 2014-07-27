@@ -85,6 +85,8 @@
   color:black;
 }
 
+
+
 .chat2 .text-input-style {
   padding: 0px;
 
@@ -121,6 +123,21 @@
   margin:0;
 }
 
+#chatlistdummy-box h4{
+  color:white;
+  margin:0;
+
+}
+
+.dummychat-title {
+  padding:0;
+}
+
+#chatlistdummy-box .panel-heading-style{
+  padding:3px;
+
+}
+
 #chatlist-box{
   color:black;
   max-height: 400px;
@@ -131,7 +148,24 @@
   bottom:0;
   position:fixed;
   right:0;
+
+}
+
+#chatlist-box .panel-body {
   overflow-y:scroll;
+
+}
+
+#chatlistdummy-box{
+  color:black;
+  max-height: 400px;
+  max-width: 250px;
+  padding:0;
+
+  background-color:#f9f9f9;
+  bottom:0;
+  position:fixed;
+  right:0;
 }
 
 #chatlist-body{
@@ -149,6 +183,14 @@
 
 
 #chatlist-box .panel-heading-style{
+  margin-left:0px;
+  margin-right:0px;
+  height:41px;
+  width:250px;
+
+}
+
+#chatlistdummy-box .panel-heading-style{
   margin-left:0px;
   margin-right:0px;
   height:41px;

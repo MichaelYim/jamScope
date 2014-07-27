@@ -2,11 +2,7 @@ Template.header.rendered = ->
   Session.set("chatBoxArray", [])
   # @sessionArray = []
 
-  setTimeout (->
-    if !Meteor.user()
-      Crater.overlay "introInfo"
-
-  ), 5000
+  Session.setDefault("introSeen", false)
 
 
 

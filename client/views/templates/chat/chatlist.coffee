@@ -1,5 +1,3 @@
-
-
 Template.chatlist.helpers
   existingChatList: ->
     idList = Meteor.user().profile.chatPartners

@@ -7,5 +7,7 @@
   </div>
   {{#if currentUser}}
   <div class="col-md-2">{{> chatlist}}</div>
+  {{else}}
+  <div class="col-md-2">{{> chatlistdummy}}</div>
   {{/if}}
 </template>
