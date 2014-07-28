@@ -106,9 +106,6 @@ Template.profilepop.events
         currentTarget = Meteor.user()._id
         Meteor.call 'updateThis', updateInfo, currentTarget, (error, result) ->
 
-
-
-
   "click #closeModalGlyph": (e) ->
     Crater.dismissOverlay('.crater-overlay')
 

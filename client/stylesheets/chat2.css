@@ -207,6 +207,11 @@
   cursor: pointer; cursor: hand;
 }
 
+.hidden {
+  visibility: hidden;
+
+}
+
 .user-tab:hover {
   background-color:rgb(221, 221, 238);
   font-weight:bolder;
@@ -226,11 +231,14 @@
   margin-bottom:3%;
 }
 
-/*.user-tab .notification {
-  margin-top:4%;
-  margin-bottom:3%;
+.user-tab .close-x {
+  margin-top:12px;
+}
 
-}*/
+.notification {
+  margin-top:4px;
+  padding-left:2px;
+}
 
 .chat-overall {
 

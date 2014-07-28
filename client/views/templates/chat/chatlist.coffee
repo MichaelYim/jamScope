@@ -35,19 +35,34 @@ Template.chatlist.helpers
 
 
 Template.chatlist.events "click .user-tab": (e) ->
-  thisId = this._id
 
-  sessionArray = Session.get("chatBoxArray")
+  if $(e.target).attr('class') == undefined || $(e.target).attr('class')[0]!= "g"
+    thisId = this._id
 
-  if _.contains(sessionArray, thisId) == false
-    if sessionArray.length >= 3
-      sessionArray.shift()
-      sessionArray.push(thisId)
-      Session.set("chatBoxArray", sessionArray)
+    sessionArray = Session.get("chatBoxArray")
+
+    if _.contains(sessionArray, thisId) == false
+      if sessionArray.length >= 3
+        sessionArray.shift()
+        sessionArray.push(thisId)
+        Session.set("chatBoxArray", sessionArray)
+      else
+        sessionArray.push(thisId)
+        Session.set("chatBoxArray", sessionArray)
     else
-      sessionArray.push(thisId)
-      Session.set("chatBoxArray", sessionArray)
   else
+    thisId = this._id
+    console.log Meteor.user().profile.chatPartners
+    newList = _.reject(Meteor.user().profile.chatPartners, (eachOne) ->
+      eachOne == thisId)
+    console.log newList
+
+    currentTarget = Meteor.user()
+    updateInfo =
+      "profile.chatPartners": newList
+    Meteor.users.update({_id: Meteor.user()._id}, {$set:{ "profile.chatPartners":newList}})
+
+
 
 
 Template.chatlist.events "click .list-minimize-button": (e) ->
@@ -64,7 +79,11 @@ Template.chatlist.events "click .list-minimize-button": (e) ->
     $("#chatlist-box").find(".panel-body").slideUp()
     $("#chatlist-box").find(".panel-heading").css({"margin-bottom":"9px"})
 
-
+Template.chatlist.rendered = ->
+  $(".user-tab").hover (->
+    $(this).find(".close-x").removeClass("hide")
+  ), ->
+    $(this).find(".close-x").addClass("hide")
 
 
 
