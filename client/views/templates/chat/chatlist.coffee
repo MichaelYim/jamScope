@@ -30,9 +30,7 @@ Template.chatlist.helpers
           "notification2":0
         currentTarget = Chatrooms.findOne({link:link})
         Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
-
       chatObject.notification2 == 1
-
 
 Template.chatlist.events "click .user-tab": (e) ->
 

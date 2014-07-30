@@ -170,6 +170,7 @@ Template.profilepop.events
     if _.contains(otherChatPartnersList, myDoc._id)
       console.log "they have your Id"
     else
+      console.log "trying to add to their Id"
       otherChatPartnersList.push(myDoc._id)
       currentTarget = Meteor.users.findOne(thisId)
       updateInfo =
