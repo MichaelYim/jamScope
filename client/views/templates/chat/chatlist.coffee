@@ -52,18 +52,16 @@ Template.chatlist.events "click .user-tab": (e) ->
     else
   else
     thisId = this._id
-    console.log Meteor.user().profile.chatPartners
     newList = _.reject(Meteor.user().profile.chatPartners, (eachOne) ->
       eachOne == thisId)
-    console.log newList
 
     currentTarget = Meteor.user()
     updateInfo =
       "profile.chatPartners": newList
     Meteor.users.update({_id: Meteor.user()._id}, {$set:{ "profile.chatPartners":newList}})
-
-
-
+    sessionArray = _.reject(sessionArray, (eachOne)->
+      eachOne == thisId)
+    Session.set("chatBoxArray", sessionArray)
 
 Template.chatlist.events "click .list-minimize-button": (e) ->
   if $(".chatlisting").hasClass("panel-collapsed")
