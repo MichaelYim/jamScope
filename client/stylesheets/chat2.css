@@ -2,8 +2,9 @@
   border-style: solid;
   border-width: 1px;
   border-color: white;
-
 }
+
+
 
 .chat-foot {
   position:fixed;
@@ -148,7 +149,7 @@
   bottom:0;
   position:fixed;
   right:0;
-
+  overflow-y:scroll;
 }
 
 #chatlist-box .panel-body {
@@ -255,9 +256,10 @@
 
 }
 
-/*.chat-listing {
+.chat-listing {
   overflow-y:scroll;
-}*/
+  overflow-x:hidden;
+}
 
 .chat-content {
   background: white;
@@ -280,3 +282,5 @@
   bottom:0px;
 
 }
+
+
