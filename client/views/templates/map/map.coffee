@@ -24,7 +24,7 @@ Template.map.rendered = ->
     key: gmapskey #optional
     # language: "de" #optional
   , ->
-
+    geocoder = new google.maps.Geocoder()
     myLatlng = new google.maps.LatLng(22.26, 114.19)
     mapOptions =
       zoom: 13
@@ -36,10 +36,19 @@ Template.map.rendered = ->
 
     google.maps.event.addListener map, "click", (e) ->
       placeMarker e.latLng, map
+      # console.log "running"
 
+      geolatlng = new google.maps.LatLng(e.latLng.k, e.latLng.B)
+
+      geocoder.geocode
+        latLng: geolatlng
+      , (results, status) ->
+        share.geocoding = results[1].formatted_address
+        console.log share.geocoding
       updateThis =
         "profile.lat": e.latLng.k
         "profile.long": e.latLng.B
+        "geocoding": share.geocoding
       currentTarget = Meteor.userId()
 
       Meteor.call 'updateThis' ,updateThis, currentTarget, (error, result) ->
@@ -68,10 +77,7 @@ Template.map.rendered = ->
 
         makeModal marker, nameObject, marker, infowindow
 
-
-
   placeMarker = (position, map) ->
-    ##add if statement for people adding forr the first time
     if Meteor.user().profile.lat == null
     else
       oldPin = _.find(arrayOfMarkers, (x) ->
