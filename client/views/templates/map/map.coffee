@@ -39,23 +39,26 @@ Template.map.rendered = ->
       # console.log "running"
 
       geolatlng = new google.maps.LatLng(e.latLng.k, e.latLng.B)
-
+      x = []
       geocoder.geocode
         latLng: geolatlng
       , (results, status) ->
-        share.geocoding = results[1].formatted_address
-        console.log share.geocoding
-      updateThis =
-        "profile.lat": e.latLng.k
-        "profile.long": e.latLng.B
-        "geocoding": share.geocoding
-      currentTarget = Meteor.userId()
+        geoCodingAddress = results[1].formatted_address
+        secondLast = results.length-2
+        geoCodingCountry = results[secondLast].formatted_address
+        updateThis =
+          "profile.lat": e.latLng.k
+          "profile.long": e.latLng.B
+          "profile.geocoding": geoCodingAddress
+          "profile.geocodingCountry": geoCodingCountry
+        currentTarget = Meteor.userId()
+        Meteor.call 'updateThis' ,updateThis, currentTarget, (error, result) ->
 
-      Meteor.call 'updateThis' ,updateThis, currentTarget, (error, result) ->
+
+
+
 
     listOfUsers = Meteor.users.find().fetch()
-
-
     arrayOfMarkers = []
     for i in [0...listOfUsers.length]
       if listOfUsers[i].profile.lat != null

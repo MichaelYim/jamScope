@@ -10,15 +10,15 @@
         </div>
         <div class="col-md-9 col-sm-12">
           <ul class="list-ul">
-              <li class=""><h4 class="brand-primary text-center">{{profile.name}}</h4></li>
+              <div class=""><h4 class="brand-primary text-center">{{profile.name}}</h4></div>
+              <div class="text-center">{{profile.geocoding}}</div>
               <br>
+
               <ul class="list-ul">
 
               <div class="text-center">
                 {{#each getInstruments}}
-                  <!-- <li class="list-instruments"> -->
                   <span class="label label-primary tags profile-labels">{{type}}: {{level}}</span>
-                  <!-- </li> -->
                 {{/each}}
               </div>
 
