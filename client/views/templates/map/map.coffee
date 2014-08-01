@@ -13,11 +13,14 @@ Template.map.rendered = ->
 
   if !Meteor.user()
     $('#map-canvas').attr("title", "sign in to add your pin!")
+
   setTimeout (->
     if !Meteor.user() && Session.get("introSeen")==false
       Crater.overlay "introInfo"
       Session.set("introSeen", true )
   ), 4000
+
+
 
   GoogleMaps.init
     sensor: true #optional

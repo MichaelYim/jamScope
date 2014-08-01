@@ -10,9 +10,6 @@ Router.configure
 Router.map () ->
   @route 'home',
     path: '/'
-    # yieldTemplates:{
-    #   'chatshoe': {to: 'aside'}
-    # }
     waitOn: ->
       [
         Meteor.subscribe('users')
@@ -36,7 +33,6 @@ Router.map () ->
     path: 'edit_profile'
     waitOn: ->
       [
-        # Meteor.subscribe('users')
         Meteor.subscribe('instruments')
         Meteor.subscribe('instrumentList')
       ]

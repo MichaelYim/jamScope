@@ -73,7 +73,7 @@ Template.edit_form.events "submit form": (e) ->
     console.log(response)
 
   Router.go("home")
-  n = noty({text: 'Your profile has been updated', type: 'success', layout:'center', timeout: 2500})
+  n = noty({text: 'Your profile has been updated. Click on the map to mark your location!', type: 'error', layout:'center', timeout: 6500})
 
 
   if $("#e9").val() == null

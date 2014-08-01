@@ -1,12 +1,17 @@
 Template.header.rendered = ->
   Session.set("chatBoxArray", [])
-  # @sessionArray = []
-
   Session.setDefault("introSeen", false)
 
 
-
-
+  Deps.autorun ->
+    if Meteor.user()
+      if Meteor.user()
+        console.log "running stuff from header"
+        if Meteor.user().profile.firstLogin == true
+          Router.go('edit_form')
+          n = noty({text: 'Welcome! Please tell us about yourself as a musician!', type: 'success', layout:'top', timeout: 10000})
+          currentTarget = Meteor.user()._id
+          Meteor.users.update({_id: currentTarget}, {$set:{ "profile.firstLogin":false}})
 
 Template.header.helpers
   activeRouteClass: () ->
