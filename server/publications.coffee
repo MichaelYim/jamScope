@@ -9,4 +9,11 @@ Meteor.publish "instrumentList", ->
 
 
 Meteor.publish "chatrooms", ->
-  Chatrooms.find()
+  return @ready() unless @userId
+  Chatrooms.find
+    $or: [
+      {user1: @userId}
+      {user2: @userId}
+    ]
+
+

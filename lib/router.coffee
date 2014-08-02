@@ -10,13 +10,16 @@ Router.configure
 Router.map () ->
   @route 'home',
     path: '/'
+
     waitOn: ->
       [
         Meteor.subscribe('users')
         Meteor.subscribe('instruments')
         Meteor.subscribe('instrumentList')
+
         Meteor.subscribe('chatrooms')
       ]
+
   @route 'search',
     path: 'musicians'
     waitOn: ->
