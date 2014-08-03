@@ -35,7 +35,19 @@ Template.map.rendered = ->
       center: myLatlng
 
     map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
+    $(".my-location-btn").click ->
+      console.log "runningButton"
+      if navigator.geolocation
+        navigator.geolocation.getCurrentPosition (position) ->
+          pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+          map.setCenter pos
 
+    #   ), ->
+    #     handleNoGeolocation true
+    #     return
+
+      else
+        alert "Cannot find location without your permission"
 
     google.maps.event.addListener map, "click", (e) ->
       placeMarker e.latLng, map

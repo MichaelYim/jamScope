@@ -17,7 +17,7 @@ Accounts.onCreateUser (options, user) ->
     options.profile.video2 = ""
     options.profile.favoriteArtists = null
     options.profile.chatPartners = []
-    options.firstLogin = true
+    options.profile.firstLogin = true
 
   user
 

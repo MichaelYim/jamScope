@@ -26,6 +26,12 @@
 
 }
 
+.my-location-btn{
+  margin-top:2px;
+  margin-bottom:2px;
+  color:black;
+}
+
 .pull-central {
   margin-left:auto;
   margin-right:auto;
