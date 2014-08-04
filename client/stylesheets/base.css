@@ -20,3 +20,16 @@ body {
   margin-left:45%;
 }
 
+.loading-text{
+  position:absolute;
+  top:50%;
+  left:45%;
+  color:white;
+
+}
+
+.loading-text h1 {
+
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+}
