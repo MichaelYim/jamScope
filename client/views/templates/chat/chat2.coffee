@@ -19,7 +19,7 @@ Template.chat2.rendered = ->
       if messageLength
         $target.animate
           scrollTop: $target.height() * 30000
-        , 300
+        , 0
 
 Template.chat2.helpers
   thisUser: ->
@@ -62,12 +62,19 @@ Template.chat2.events "click .msg-btn": (e) ->
         "timestamp": "x"
         "read": false
 
-
       object[0].messages.push(updateInfoUnit)
-      updateInfoUnit = object[0].messages
+
+      if object[0].messages.length < 100
+        updateInfoUnit = object[0].messages
+
+      else
+        object[0].messages.shift()
+        updateInfoUnit = object[0].messages
+
       updateInfo =
         "messages": updateInfoUnit
         "notification2":1
+
       currentTarget = object[0]._id
       Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
 
@@ -75,7 +82,7 @@ Template.chat2.events "click .msg-btn": (e) ->
       $target = $(thisId).find('.panel-body-style')
       $target.animate
         scrollTop: $target.height() * 30000
-      , 300
+      , 0
 
       Deps.autorun ->
         chatroom = Chatrooms.findOne({link:link})
@@ -83,7 +90,8 @@ Template.chat2.events "click .msg-btn": (e) ->
         if messageLength
           $target.animate
             scrollTop: $target.height() * 30000
-          , 300
+          , 0
+
 
     else if userId == object[0].user2
       updateInfoUnit =
@@ -93,7 +101,14 @@ Template.chat2.events "click .msg-btn": (e) ->
         "read": false
 
       object[0].messages.push(updateInfoUnit)
-      updateInfoUnit = object[0].messages
+
+      if object[0].messages.length < 100
+        updateInfoUnit = object[0].messages
+
+      else
+        object[0].messages.shift()
+        updateInfoUnit = object[0].messages
+
       updateInfo =
         "messages": updateInfoUnit
         "notification1":1
@@ -104,7 +119,7 @@ Template.chat2.events "click .msg-btn": (e) ->
       $target = $(thisId).find('.panel-body-style')
       $target.animate
         scrollTop: $target.height() * 30000
-      , 300
+      , 0
 
       Deps.autorun ->
         chatroom = Chatrooms.findOne({link:link})
@@ -112,7 +127,9 @@ Template.chat2.events "click .msg-btn": (e) ->
         if messageLength
           $target.animate
             scrollTop: $target.height() * 30000
-          , 300
+          , 0
+  console.log object[0].messages.length
+
 
 Template.chat2.events "keydown .chat_input": (event) ->
   if event.which is 13
@@ -126,7 +143,6 @@ Template.chat2.events "keydown .chat_input": (event) ->
     object = Chatrooms.find({link: link}).fetch()
     byId = object[0]._id
     if message != ""
-
       if userId == object[0].user1
         updateInfoUnit =
           "owner": userId
@@ -134,12 +150,19 @@ Template.chat2.events "keydown .chat_input": (event) ->
           "timestamp": "x"
           "read": false
 
-
         object[0].messages.push(updateInfoUnit)
-        updateInfoUnit = object[0].messages
+
+        if object[0].messages.length < 100
+          updateInfoUnit = object[0].messages
+
+        else
+          object[0].messages.shift()
+          updateInfoUnit = object[0].messages
+
         updateInfo =
           "messages": updateInfoUnit
           "notification2":1
+
         currentTarget = object[0]._id
         Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
 
@@ -155,7 +178,8 @@ Template.chat2.events "keydown .chat_input": (event) ->
           if messageLength
             $target.animate
               scrollTop: $target.height() * 30000
-            , 300
+            , 0
+
 
       else if userId == object[0].user2
         updateInfoUnit =
@@ -165,7 +189,14 @@ Template.chat2.events "keydown .chat_input": (event) ->
           "read": false
 
         object[0].messages.push(updateInfoUnit)
-        updateInfoUnit = object[0].messages
+
+        if object[0].messages.length < 100
+          updateInfoUnit = object[0].messages
+
+        else
+          object[0].messages.shift()
+          updateInfoUnit = object[0].messages
+
         updateInfo =
           "messages": updateInfoUnit
           "notification1":1
@@ -176,7 +207,7 @@ Template.chat2.events "keydown .chat_input": (event) ->
         $target = $(thisId).find('.panel-body-style')
         $target.animate
           scrollTop: $target.height() * 30000
-        , 300
+        , 0
 
         Deps.autorun ->
           chatroom = Chatrooms.findOne({link:link})
@@ -184,7 +215,8 @@ Template.chat2.events "keydown .chat_input": (event) ->
           if messageLength
             $target.animate
               scrollTop: $target.height() * 30000
-            , 300
+            , 0
+    console.log object[0].messages.length
 
 
 Template.chat2.events "click .icon_minim": (e) ->
