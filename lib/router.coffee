@@ -42,6 +42,20 @@ Router.map () ->
     data: ->
       Meteor.user()
 
+
+  @route 'info',
+    path: 'info'
+    waitOn: ->
+      [
+        Meteor.subscribe('users')
+        Meteor.subscribe('instruments')
+        Meteor.subscribe('instrumentList')
+
+        Meteor.subscribe('chatrooms')
+      ]
+
+
+
   # @route 'notFound',
   #   path: '*'
   #   where: 'server'

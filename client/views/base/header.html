@@ -15,12 +15,12 @@
         <ul class="nav navbar-nav">
           <li><a class="nav-map-button" href="/">Map</a></li>
           <li><a class="nav-search-button" href="{{pathFor 'search'}}">Search</a></li>
+          <li><a class="nav-info-button" href="{{pathFor 'info'}}">Info</a></li>
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
 
           {{#if currentUser}}
-       <!--    <li><a href="{{pathFor 'chat'}}">Chat</a></li> -->
           <li><a href="{{pathFor 'edit_form'}}">Edit Profile</a></li>
           {{/if}}
             {{> loginButtons }}
