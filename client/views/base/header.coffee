@@ -13,6 +13,8 @@ Template.header.rendered = ->
           currentTarget = Meteor.user()._id
           Meteor.users.update({_id: currentTarget}, {$set:{ "profile.firstLogin":false}})
 
+
+
 Template.header.helpers
   activeRouteClass: () ->
     args = Array.prototype.slice.call(arguments, 0)

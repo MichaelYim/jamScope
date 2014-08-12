@@ -18,6 +18,8 @@ Accounts.onCreateUser (options, user) ->
     options.profile.favoriteArtists = null
     options.profile.chatPartners = []
     options.profile.firstLogin = true
+    options.profile.emailnotify = false
+    options.profile.online = false
 
   user
 
