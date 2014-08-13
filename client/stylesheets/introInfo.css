@@ -1,6 +1,6 @@
 .intro-box{
   margin-top:100px;
-  height:400px;
+  height:600px;
   width:600px;
   background-color:white;
 
@@ -17,7 +17,7 @@
 
 @media (max-width: 700px) {
   .intro-box{
-    height:50%;
+    height:130%;
     width:60%;
     min-height:280px;
   }
