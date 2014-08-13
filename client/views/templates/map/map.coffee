@@ -11,6 +11,8 @@ arrayOfMarkers = []
 
 Template.map.rendered = ->
 
+  $("html, body").scrollTop(0)
+
   if !Meteor.user()
     $('#map-canvas').attr("title", "sign in to add your pin!")
 

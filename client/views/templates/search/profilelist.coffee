@@ -1,5 +1,3 @@
-# @currentTarget = ""
-# @updateInfo = ""
 Template.profilelist.rendered = ->
   Crater.dismissOverlay('.crater-overlay')
 

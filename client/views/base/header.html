@@ -9,19 +9,19 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" id="logo" href="/">jamScope<i class="fa fa-music fa-inverse"></i></a>
+        <a class="navbar-brand page-change" id="logo" href="/">jamScope<i class="fa fa-music fa-inverse"></i></a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a class="nav-map-button" href="/">Map</a></li>
+          <li><a class="nav-map-button page-change" href="/">Map</a></li>
           <li><a class="nav-search-button" href="{{pathFor 'search'}}">Search</a></li>
-          <li><a class="nav-info-button" href="{{pathFor 'info'}}">Info</a></li>
+          <li><a class="nav-info-button page-change" href="{{pathFor 'info'}}">Info</a></li>
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
 
           {{#if currentUser}}
-          <li><a href="{{pathFor 'edit_form'}}">Edit Profile</a></li>
+          <li><a class="page-change" href="{{pathFor 'edit_form'}}">Edit Profile</a></li>
           {{/if}}
             {{> loginButtons }}
         </ul>
