@@ -1,4 +1,3 @@
 .meteor\local
 .meteor\meteorite
 .meteor\secret.coffee
-.meteor\server\kadira.js

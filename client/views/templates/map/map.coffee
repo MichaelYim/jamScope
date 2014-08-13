@@ -23,11 +23,11 @@ Template.map.rendered = ->
 
 
   GoogleMaps.init
-    sensor: true #optional
-    key: gmapskey #optional
+    sensor: true
+    key: gmapskey
     # language: "de" #optional
   , ->
-    geocoder = new google.maps.Geocoder()
+
     myLatlng = new google.maps.LatLng(22.26, 114.19)
     mapOptions =
       zoom: 13
@@ -44,28 +44,25 @@ Template.map.rendered = ->
           map.setZoom(13)
           console.log position
 
-    #   ), ->
-    #     handleNoGeolocation true
-    #     return
-
       else
         alert "Cannot find location without your permission"
 
     google.maps.event.addListener map, "click", (e) ->
       placeMarker e.latLng, map
       # console.log "running"
-
-      geolatlng = new google.maps.LatLng(e.latLng.k, e.latLng.B)
+      geocoder = new google.maps.Geocoder()
+      geolatlng = new google.maps.LatLng(e.latLng.k, e.latLng.A)
       x = []
       geocoder.geocode
         latLng: geolatlng
       , (results, status) ->
+        console.log results
         geoCodingAddress = results[1].formatted_address
         secondLast = results.length-2
         geoCodingCountry = results[secondLast].formatted_address
         updateThis =
           "profile.lat": e.latLng.k
-          "profile.long": e.latLng.B
+          "profile.long": e.latLng.A
           "profile.geocoding": geoCodingAddress
           "profile.geocodingCountry": geoCodingCountry
         currentTarget = Meteor.userId()
