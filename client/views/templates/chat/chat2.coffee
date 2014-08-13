@@ -20,6 +20,11 @@ Template.chat2.rendered = ->
         $target.animate
           scrollTop: $target.height() * 30000
         , 0
+        setTimeout (->
+          $target.animate
+            scrollTop: $target.height() * 30000
+          , 0
+        ), 100
 
 Template.chat2.helpers
   thisUser: ->
