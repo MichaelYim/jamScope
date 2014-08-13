@@ -67,22 +67,14 @@ Template.chat2.events "click .msg-btn": (e) ->
         "timestamp": "x"
         "read": false
 
-      object[0].messages.push(updateInfoUnit)
-
-      if object[0].messages.length < 100
-        updateInfoUnit = object[0].messages
-
-      else
-        object[0].messages.shift()
-        updateInfoUnit = object[0].messages
-
-      updateInfo =
-        "messages": updateInfoUnit
+      updateNotify2 =
         "notification2":1
 
-      currentTarget = object[0]._id
-      Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
+      updateMessage =
+        "messages": updateInfoUnit
 
+      currentTarget = object[0]._id
+      Meteor.call 'messagePush2', updateMessage, currentTarget, updateNotify2, (error, result) ->
       $(thisId).find('.chat_input').val('')
       $target = $(thisId).find('.panel-body-style')
       $target.animate
@@ -105,20 +97,14 @@ Template.chat2.events "click .msg-btn": (e) ->
         "timestamp": "x"
         "read": false
 
-      object[0].messages.push(updateInfoUnit)
-
-      if object[0].messages.length < 100
-        updateInfoUnit = object[0].messages
-
-      else
-        object[0].messages.shift()
-        updateInfoUnit = object[0].messages
-
-      updateInfo =
-        "messages": updateInfoUnit
+      updateNotify2 =
         "notification1":1
+
+      updateMessage =
+        "messages": updateInfoUnit
+
       currentTarget = object[0]._id
-      Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
+      Meteor.call 'messagePush2', updateMessage, currentTarget, updateNotify2, (error, result) ->
 
       $(thisId).find('.chat_input').val('')
       $target = $(thisId).find('.panel-body-style')
@@ -133,7 +119,6 @@ Template.chat2.events "click .msg-btn": (e) ->
           $target.animate
             scrollTop: $target.height() * 30000
           , 0
-  console.log object[0].messages.length
 
 
 Template.chat2.events "keydown .chat_input": (event) ->
@@ -155,27 +140,19 @@ Template.chat2.events "keydown .chat_input": (event) ->
           "timestamp": "x"
           "read": false
 
-        object[0].messages.push(updateInfoUnit)
-
-        if object[0].messages.length < 100
-          updateInfoUnit = object[0].messages
-
-        else
-          object[0].messages.shift()
-          updateInfoUnit = object[0].messages
-
-        updateInfo =
-          "messages": updateInfoUnit
+        updateNotify2 =
           "notification2":1
 
-        currentTarget = object[0]._id
-        Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
+        updateMessage =
+          "messages": updateInfoUnit
 
+        currentTarget = object[0]._id
+        Meteor.call 'messagePush2', updateMessage, currentTarget, updateNotify2, (error, result) ->
         $(thisId).find('.chat_input').val('')
         $target = $(thisId).find('.panel-body-style')
         $target.animate
           scrollTop: $target.height() * 30000
-        , 300
+        , 0
 
         Deps.autorun ->
           chatroom = Chatrooms.findOne({link:link})
@@ -186,27 +163,23 @@ Template.chat2.events "keydown .chat_input": (event) ->
             , 0
 
 
+
+
       else if userId == object[0].user2
         updateInfoUnit =
-          "owner": userId
-          "content": message
-          "timestamp": "x"
-          "read": false
+        "owner": userId
+        "content": message
+        "timestamp": "x"
+        "read": false
 
-        object[0].messages.push(updateInfoUnit)
-
-        if object[0].messages.length < 100
-          updateInfoUnit = object[0].messages
-
-        else
-          object[0].messages.shift()
-          updateInfoUnit = object[0].messages
-
-        updateInfo =
-          "messages": updateInfoUnit
+        updateNotify2 =
           "notification1":1
+
+        updateMessage =
+          "messages": updateInfoUnit
+
         currentTarget = object[0]._id
-        Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
+        Meteor.call 'messagePush2', updateMessage, currentTarget, updateNotify2, (error, result) ->
 
         $(thisId).find('.chat_input').val('')
         $target = $(thisId).find('.panel-body-style')

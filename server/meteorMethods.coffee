@@ -18,6 +18,14 @@ Meteor.methods updateThisAddToSet: (updateInfo, currentTarget) ->
   Meteor.users.update currentTarget2,
   $set:updateInfo2
 
+Meteor.methods messagePush2: (updateMessage, currentTarget, updateNotify2) ->
+  Chatrooms.update currentTarget,
+  $push:updateMessage
+
+  Chatrooms.update currentTarget,
+  $set:updateNotify2
+
+
 Meteor.methods deleteInstrumentsInCollection: ->
   Instruments.remove({owner: Meteor.userId()})
 
