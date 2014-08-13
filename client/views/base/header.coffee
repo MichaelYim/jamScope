@@ -1,3 +1,8 @@
+Meteor.startup ->
+  $("html").attr "xmlns", "http://www.w3.org/1999/xhtml"
+  $("html").attr "xmlns:fb", "http://ogp.me/ns/fb#"
+
+
 Template.header.rendered = ->
   Session.set("chatBoxArray", [])
   Session.setDefault("introSeen", false)
