@@ -20,11 +20,11 @@ Template.chat2.rendered = ->
         $target.animate
           scrollTop: $target.height() * 30000
         , 0
-        setTimeout (->
-          $target.animate
-            scrollTop: $target.height() * 30000
-          , 0
-        ), 100
+        # setTimeout (->
+        #   $target.animate
+        #     scrollTop: $target.height() * 30000
+        #   , 0
+        # ), 100
 
 Template.chat2.helpers
   thisUser: ->
@@ -74,20 +74,24 @@ Template.chat2.events "click .msg-btn": (e) ->
         "messages": updateInfoUnit
 
       currentTarget = object[0]._id
-      Meteor.call 'messagePush2', updateMessage, currentTarget, updateNotify2, (error, result) ->
-      $(thisId).find('.chat_input').val('')
       $target = $(thisId).find('.panel-body-style')
-      $target.animate
-        scrollTop: $target.height() * 30000
-      , 0
-
-      Deps.autorun ->
-        chatroom = Chatrooms.findOne({link:link})
-        messageLength = chatroom.messages.length
-        if messageLength
+      Meteor.call 'messagePush2', updateMessage, currentTarget, updateNotify2, (error, result) ->
+        if result
           $target.animate
             scrollTop: $target.height() * 30000
           , 0
+
+      $(thisId).find('.chat_input').val('')
+
+
+
+      # Deps.autorun ->
+      #   chatroom = Chatrooms.findOne({link:link})
+      #   messageLength = chatroom.messages.length
+      #   if messageLength
+      #     $target.animate
+      #       scrollTop: $target.height() * 30000
+      #     , 0
 
 
     else if userId == object[0].user2
