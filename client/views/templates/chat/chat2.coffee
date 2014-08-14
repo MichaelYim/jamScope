@@ -20,11 +20,11 @@ Template.chat2.rendered = ->
         $target.animate
           scrollTop: $target.height() * 30000
         , 0
-        # setTimeout (->
-        #   $target.animate
-        #     scrollTop: $target.height() * 30000
-        #   , 0
-        # ), 100
+        setTimeout (->
+          $target.animate
+            scrollTop: $target.height() * 30000
+          , 0
+        ), 100
 
 Template.chat2.helpers
   thisUser: ->
@@ -76,23 +76,8 @@ Template.chat2.events "click .msg-btn": (e) ->
       currentTarget = object[0]._id
       $target = $(thisId).find('.panel-body-style')
       Meteor.call 'messagePush2', updateMessage, currentTarget, updateNotify2, (error, result) ->
-        if result
-          $target.animate
-            scrollTop: $target.height() * 30000
-          , 0
 
       $(thisId).find('.chat_input').val('')
-
-
-
-      # Deps.autorun ->
-      #   chatroom = Chatrooms.findOne({link:link})
-      #   messageLength = chatroom.messages.length
-      #   if messageLength
-      #     $target.animate
-      #       scrollTop: $target.height() * 30000
-      #     , 0
-
 
     else if userId == object[0].user2
       updateInfoUnit =
@@ -111,19 +96,6 @@ Template.chat2.events "click .msg-btn": (e) ->
       Meteor.call 'messagePush2', updateMessage, currentTarget, updateNotify2, (error, result) ->
 
       $(thisId).find('.chat_input').val('')
-      $target = $(thisId).find('.panel-body-style')
-      $target.animate
-        scrollTop: $target.height() * 30000
-      , 0
-
-      Deps.autorun ->
-        chatroom = Chatrooms.findOne({link:link})
-        messageLength = chatroom.messages.length
-        if messageLength
-          $target.animate
-            scrollTop: $target.height() * 30000
-          , 0
-
 
 Template.chat2.events "keydown .chat_input": (event) ->
   if event.which is 13
@@ -153,21 +125,6 @@ Template.chat2.events "keydown .chat_input": (event) ->
         currentTarget = object[0]._id
         Meteor.call 'messagePush2', updateMessage, currentTarget, updateNotify2, (error, result) ->
         $(thisId).find('.chat_input').val('')
-        $target = $(thisId).find('.panel-body-style')
-        $target.animate
-          scrollTop: $target.height() * 30000
-        , 0
-
-        Deps.autorun ->
-          chatroom = Chatrooms.findOne({link:link})
-          messageLength = chatroom.messages.length
-          if messageLength
-            $target.animate
-              scrollTop: $target.height() * 30000
-            , 0
-
-
-
 
       else if userId == object[0].user2
         updateInfoUnit =
@@ -187,19 +144,6 @@ Template.chat2.events "keydown .chat_input": (event) ->
 
         $(thisId).find('.chat_input').val('')
         $target = $(thisId).find('.panel-body-style')
-        $target.animate
-          scrollTop: $target.height() * 30000
-        , 0
-
-        Deps.autorun ->
-          chatroom = Chatrooms.findOne({link:link})
-          messageLength = chatroom.messages.length
-          if messageLength
-            $target.animate
-              scrollTop: $target.height() * 30000
-            , 0
-    console.log object[0].messages.length
-
 
 Template.chat2.events "click .icon_minim": (e) ->
   cleanId = this.toString()
