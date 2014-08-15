@@ -60,10 +60,15 @@ Template.map.rendered = ->
         alert "Cannot find location without your permission"
 
     google.maps.event.addListener map, "click", (e) ->
+      console.log e.latLng
       placeMarker e.latLng, map
+      B = "1"
+      if e.latLng.B != null
+        B = e.latLng.B
+      else B = e.latLng.A
       # console.log "running"
       geocoder = new google.maps.Geocoder()
-      geolatlng = new google.maps.LatLng(e.latLng.k, e.latLng.A)
+      geolatlng = new google.maps.LatLng(e.latLng.k, B)
       x = []
       geocoder.geocode
         latLng: geolatlng
@@ -74,7 +79,7 @@ Template.map.rendered = ->
         geoCodingCountry = results[secondLast].formatted_address
         updateThis =
           "profile.lat": e.latLng.k
-          "profile.long": e.latLng.A
+          "profile.long": B
           "profile.geocoding": geoCodingAddress
           "profile.geocodingCountry": geoCodingCountry
         currentTarget = Meteor.userId()

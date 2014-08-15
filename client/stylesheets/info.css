@@ -49,3 +49,12 @@
   color: rgb(252, 184, 95);
 
 }
+
+.text-through {
+  text-decoration:line-through
+}
+
+.color-white {
+  color:white;
+
+}
