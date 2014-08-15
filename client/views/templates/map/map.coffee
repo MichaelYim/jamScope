@@ -46,6 +46,16 @@ Template.map.rendered = ->
           map.setZoom(13)
           console.log position
 
+    $(".pin-my-location-btn").click ->
+      console.log "runningButton"
+      if navigator.geolocation
+        navigator.geolocation.getCurrentPosition (position) ->
+          pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+          map.setCenter pos
+          map.setZoom(13)
+          console.log position
+          placeMarker pos, map
+
       else
         alert "Cannot find location without your permission"
 
