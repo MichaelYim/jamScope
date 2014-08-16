@@ -1,4 +1,7 @@
-makeModal = (marker, nameObject, map)->
+makeModal = (marker, nameObject, map, infowindow)->
+      google.maps.event.addListener marker, "mouseover", ->
+        infowindow.open(marker.get('map'), marker)
+
       google.maps.event.addListener marker, "click", ->
         Crater.overlay "profilepop",
           data:
