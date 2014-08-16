@@ -4,8 +4,6 @@ Template.profilelist.rendered = ->
   if !Meteor.user()
     $('.well').attr("title", "sign in to chat!")
 
-
-
 Template.profilelist.helpers
 
   users: ->
