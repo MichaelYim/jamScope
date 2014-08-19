@@ -34,3 +34,6 @@ Meteor.methods updateChatrooms: (updateInfo, currentTarget) ->
 
 Meteor.methods insertChatroom: (insertInfo) ->
   Chatrooms.insert insertInfo
+
+Meteor.methods insertShoutOut: (insertInfo) ->
+  ShoutOuts.insert insertInfo

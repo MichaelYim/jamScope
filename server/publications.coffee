@@ -16,4 +16,7 @@ Meteor.publish "chatrooms", ->
       {user2: @userId}
     ]
 
+Meteor.publish "shoutouts", ->
+  ShoutOuts.find()
+
 

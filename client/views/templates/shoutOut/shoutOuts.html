@@ -1,0 +1,28 @@
+<template name="shoutOuts">
+  <div class="container pull-center" id="shout-back">
+    <div class="text-center">
+      <h1 class="leave">Leave a Shout-Out!</h1>
+      <h4 class="leave-sub">introduce yourselves.</h4>
+    </div>
+    <div class="shout-out-chat-box">
+      <div class="row">
+        <!-- <div class="col-md-offset-1 col-md-9"> -->
+          <p class="message-label">Message:
+            <input class="shout-out-input" type="text">
+            <button class="btn-sm btn-primary shout-out-button"><i class="fa fa-arrow-circle-o-down"></i> Send</button><br>
+          </p>
+        <!-- </div> -->
+      </div>
+      <br>
+      <div class="container pull-center shout-out-list">
+        {{#each messages}}
+          <div class="shout-out-unit">
+            <strong>{{name}}:</strong> {{content}}<span class ="pull-right time-stamp">{{actualDay}}</span><br>
+            <span ><img class="shout-out-unit-second-line" src={{picture}}></span>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+</template>

@@ -9,3 +9,4 @@
 
 @Chatrooms = new Meteor.Collection 'chatrooms'
 
+@ShoutOuts = new Meteor.Collection 'shoutouts'

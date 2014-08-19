@@ -54,6 +54,18 @@ Router.map () ->
         Meteor.subscribe('chatrooms')
       ]
 
+  @route 'shoutOuts',
+    path: 'shoutOuts'
+    waitOn: ->
+      [
+        Meteor.subscribe('users')
+        Meteor.subscribe('instruments')
+        Meteor.subscribe('instrumentList')
+
+        Meteor.subscribe('chatrooms')
+        Meteor.subscribe('shoutouts')
+      ]
+
 
 
   # @route 'notFound',

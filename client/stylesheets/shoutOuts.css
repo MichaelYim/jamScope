@@ -1,0 +1,58 @@
+.leave {
+  color:white;
+  margin-bottom:0;
+}
+
+.leave-sub {
+  margin-top:0;
+}
+
+#shout-back {
+  background-color:rgba(0,0,0,0.9);
+  padding-top: 0px;
+  margin-top:-20px;
+
+  min-height: 95%;
+  color: white;
+}
+
+.shout-out-chat-box {
+  color:black;
+}
+
+.shout-out-input {
+  color:black;
+  width:70%;
+
+}
+.message-label {
+  color:white ;
+  margin-left:10%;
+}
+
+.shout-out-list {
+  background-color:rgb(242, 242, 242);
+  color:black;
+  width:70%;
+  height:600px;
+  overflow-y:scroll;
+
+}
+
+.time-stamp {
+  font-family:"Comic Sans MS", cursive, sans-serif;
+  font-size:10px;
+  margin-left:100px;
+}
+
+.shout-out-unit-second-line {
+  height:5%;
+  width:5%;
+}
+
+.shout-out-unit {
+  margin:6px;
+  background-color:#D4E6F6;
+  padding:10px;
+  color:black;
+}
