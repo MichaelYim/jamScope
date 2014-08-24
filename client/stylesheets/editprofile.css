@@ -12,5 +12,9 @@
 label {
   font-weight: normal;
 
+}
+
+.padding-right-none {
+  padding-right:0px;
 
 }

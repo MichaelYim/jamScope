@@ -22,6 +22,14 @@ Template.profilepop.helpers
     object = object[0]
     fans = object.profile.fans.length
 
+  hasSoundCloud: ->
+    y = this._id
+    y = y.toString()
+    object = Meteor.users.find(y).fetch()
+    object = object[0]
+    console.log object.profile.soundCloud
+    object.profile.soundCloud != null
+
   following: ->
     y = this._id
     y = y.toString()

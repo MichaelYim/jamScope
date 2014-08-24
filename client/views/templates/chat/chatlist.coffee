@@ -75,6 +75,9 @@ Template.chatlist.events "click .list-minimize-button": (e) ->
     $("#chatlist-box").find(".panel-body").slideUp()
     $("#chatlist-box").find(".panel-heading").css({"margin-bottom":"9px"})
 
+Template.chatlist.events "click .chat-help": (e) ->
+  alert "click on the 'chat' or 'message' button on a user's profile to initiate chat."
+
 Template.chatlist.rendered = ->
   $(".user-tab").hover (->
     $(this).find(".close-x").removeClass("hide")

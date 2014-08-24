@@ -22,6 +22,12 @@
             <a href="#"><span class="fa fa-star fa-lg"></span></a>
           </li>
         </ul>
+        {{#if hasSoundCloud}}
+
+          <iframe allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fb_gamut&color=orange_white&size=40" style="width: 40px; height: 40px;"></iframe>
+
+        {{/if}}
+
       </div>
       <div class="col-sm-8">
         <h2>
@@ -93,13 +99,17 @@
           </div>
         </div>
         <div class="row">
-          <!-- <div class="col-xs-6">
-            <button type="button" class="btn btn-primary btn-block modalChatButton"><span class="fa fa-wechat"></span> Chat</button>
-          </div> -->
+
         </div>
       </div>
     </div>
   </div>
+<!--   <div class="panel panel-default panel-body pull-central">
+    {{> soundCloud}}
+  </div> -->
+
+
+
     {{#if eitherExists}}
       <div class="pull-central panel panel-default panel-body videoList">
         {{#if video1Exists}}
