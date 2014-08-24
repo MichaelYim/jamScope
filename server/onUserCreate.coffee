@@ -20,6 +20,7 @@ Accounts.onCreateUser (options, user) ->
     options.profile.firstLogin = true
     options.profile.emailnotify = false
     options.profile.online = false
+    options.profile.soundCloud = null
 
   user
 
