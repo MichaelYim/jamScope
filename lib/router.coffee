@@ -65,17 +65,17 @@ Router.map () ->
         Meteor.subscribe('shoutouts')
       ]
 
-  @route 'track',
-    path: 'shoutOuts'
-    waitOn: ->
-      [
-        Meteor.subscribe('users')
-        Meteor.subscribe('instruments')
-        Meteor.subscribe('instrumentList')
+  # @route 'track',
+  #   path: 'shoutOuts'
+  #   waitOn: ->
+  #     [
+  #       Meteor.subscribe('users')
+  #       Meteor.subscribe('instruments')
+  #       Meteor.subscribe('instrumentList')
 
-        Meteor.subscribe('chatrooms')
-        Meteor.subscribe('shoutouts')
-      ]
+  #       Meteor.subscribe('chatrooms')
+  #       Meteor.subscribe('shoutouts')
+  #     ]
 
 
 

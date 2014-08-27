@@ -1,5 +1,4 @@
 Template.shoutOuts.helpers
-
   messages: ->
     ShoutOuts.find({}, { sort: { timeStamp: -1 }})
 

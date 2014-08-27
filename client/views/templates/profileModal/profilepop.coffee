@@ -30,6 +30,13 @@ Template.profilepop.helpers
     console.log object.profile.soundCloud
     object.profile.soundCloud != null
 
+  cloudLink: ->
+    y = this._id
+    y = y.toString()
+    object = Meteor.users.find(y).fetch()
+    object = object[0]
+    object.profile.soundCloud
+
   following: ->
     y = this._id
     y = y.toString()
