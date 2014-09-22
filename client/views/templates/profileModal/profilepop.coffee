@@ -1,9 +1,10 @@
+#modal popup for user profiles
 Template.profilepop.helpers
 
-  getInstrumentsPop: ->
+  getInstrumentsPop: -> #instruments played by that user
     Instruments.find({owner:"#{this._id}"})
 
-  notMine: ->
+  notMine: -> #identify if own profile or not
     y = this._id
     y = y.toString()
     object = Meteor.users.findOne(y)
@@ -15,14 +16,14 @@ Template.profilepop.helpers
     object = Meteor.users.findOne(y)
     object._id == Meteor.user()._id
 
-  fans: ->
+  fans: -> #find number of people following this user
     y = this._id
     y = y.toString()
     object = Meteor.users.find(y).fetch()
     object = object[0]
     fans = object.profile.fans.length
 
-  hasSoundCloud: ->
+  hasSoundCloud: -> #have soundcloud or not
     y = this._id
     y = y.toString()
     object = Meteor.users.find(y).fetch()
@@ -30,28 +31,28 @@ Template.profilepop.helpers
     console.log object.profile.soundCloud
     object.profile.soundCloud != null
 
-  cloudLink: ->
+  cloudLink: -> #sound cloud link
     y = this._id
     y = y.toString()
     object = Meteor.users.find(y).fetch()
     object = object[0]
     object.profile.soundCloud
 
-  following: ->
+  following: -> #number of people this user is following
     y = this._id
     y = y.toString()
     object = Meteor.users.find(y).fetch()
     object = object[0]
     following = object.profile.following.length
 
-  followingAlready: ->
+  followingAlready: -> #find out if current user is following this person or not
     y = this._id
     y = y.toString()
     object = Meteor.users.find(y).fetch()
     object = object[0]
     _.contains(object.profile.fans, Meteor.user()._id)
 
-  video1Exists: ->
+  video1Exists: -> #identify if video1 slot is filled
     y = this._id
     y = y.toString()
     object = Meteor.users.find(y).fetch()
@@ -61,7 +62,7 @@ Template.profilepop.helpers
     else
       false
 
-  video2Exists: ->
+  video2Exists: -> #identify if video2 slot is filled
     y = this._id
     y = y.toString()
     object = Meteor.users.find(y).fetch()
@@ -71,7 +72,7 @@ Template.profilepop.helpers
     else
       false
 
-  eitherExists: ->
+  eitherExists: -> #identify if both video slots are empty
     y = this._id
     y = y.toString()
     object = Meteor.users.find(y).fetch()
@@ -82,7 +83,7 @@ Template.profilepop.helpers
     else
       true
 
-  video1: ->
+  video1: -> #video 1 link
     y = this._id
     y = y.toString()
     object = Meteor.users.find(y).fetch()
@@ -90,7 +91,7 @@ Template.profilepop.helpers
     full = object.profile.video1
     full.substring(full.length-11)
 
-  video2: ->
+  video2: -> #video 2 link
     y = this._id
     y = y.toString()
     object = Meteor.users.find(y).fetch()
@@ -106,7 +107,7 @@ Template.profilepop.events
     thisUser = thisUser[0]
     existingFans = thisUser.profile.fans
     if this._id != currentUserId
-      if _.contains(existingFans, currentUserId) == false
+      if _.contains(existingFans, currentUserId) == false #make sure you can't follow the same user multiple times
         existingFans.push(currentUserId)
         updateInfo =
           "profile.fans": existingFans
@@ -121,13 +122,13 @@ Template.profilepop.events
         currentTarget = Meteor.user()._id
         Meteor.call 'updateThis', updateInfo, currentTarget, (error, result) ->
 
-  "click #closeModalGlyph": (e) ->
+  "click #closeModalGlyph": (e) -> #close modal button
     Crater.dismissOverlay('.crater-overlay')
 
-  "click .modalEditButton": (e) ->
+  "click .modalEditButton": (e) -> #button to edit profile page
     Router.go("edit_form")
 
-Template.profilepop.events
+Template.profilepop.events #chat button on profile modal
   "click .modalChatButton": (e) ->
     Crater.dismissOverlay('.crater-overlay')
     thisId = this._id
@@ -168,7 +169,7 @@ Template.profilepop.events
           Session.set("chatBoxArray", sessionArray)
       else
 
-      ##create in your own User Document first
+      #put target user ID in your own User Document first
     newChatPartnersList = myDoc.profile.chatPartners
     if _.contains(newChatPartnersList, thisId)
       console.log "you have their Id"
@@ -180,7 +181,7 @@ Template.profilepop.events
       Meteor.users.update({_id: currentTargetId}, {$addToSet:{ "profile.chatPartners":thisId}})
 
 
-    ##create in the other person's User Document
+    #put your user ID in target user's User Document
     otherChatPartnersList = Partner.profile.chatPartners
     if _.contains(otherChatPartnersList, myDoc._id)
       console.log "they have your Id"
