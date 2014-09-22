@@ -2,13 +2,12 @@ Meteor.startup ->
   $("html").attr "xmlns", "http://www.w3.org/1999/xhtml"
   $("html").attr "xmlns:fb", "http://ogp.me/ns/fb#"
 
-
+# set session variables to empty (to configure intro popup and chat boxes open)
 Template.header.rendered = ->
   Session.set("chatBoxArray", [])
   Session.setDefault("introSeen", false)
 
-
-  Deps.autorun ->
+  Deps.autorun -> #popup notification for first login
     if Meteor.user()
       if Meteor.user()
         console.log "running stuff from header"
@@ -30,7 +29,7 @@ Template.header.helpers
 
     active and 'active'
 
-Template.header.events
+Template.header.events #clicking any of the header buttons dismisses an overlay (if one exists)
   "click .nav-map-button": (e) ->
     Crater.dismissOverlay('.crater-overlay')
 
