@@ -1,11 +1,13 @@
 Template.edit_form.rendered = ->
-  Crater.dismissOverlay('.crater-overlay')
+  Crater.dismissOverlay('.crater-overlay') #close overlay if one exists
+
+  #populate box with instruments played by user
   if Meteor.user().profile.instrumentsPlayed == null
     populator = [""]
   else
     populator = Meteor.user().profile.instrumentsPlayed.sort()
 
-  $("#e9").val(populator).select2({maximumSelectionSize: 6})
+  $("#e9").val(populator).select2({maximumSelectionSize: 6}) #six instruments max
 
   currentTarget = Meteor.userId()
   updateInfo =
@@ -13,7 +15,7 @@ Template.edit_form.rendered = ->
   Meteor.call 'updateThis' ,updateInfo, currentTarget, (error, result) ->
 
 Template.edit_form.helpers
-  instrumentSelection: ->
+  instrumentSelection: -> #find list of instrument choices available
     InstrumentList.find()
 
   addIndex:  ->
@@ -22,9 +24,9 @@ Template.edit_form.helpers
       index: index
       value: val
 
+# Update database when new instrument is chosen, even form is not submitted. This allows real-time addition
+# of form fields
 Template.edit_form.events "change #e9": (e) ->
-  console.log $("#e9").val()
-
   currentTarget = Meteor.userId()
   updateInfo =
     if $("#e9").val() == null
@@ -34,6 +36,7 @@ Template.edit_form.events "change #e9": (e) ->
 
   Meteor.call 'updateThis', updateInfo, currentTarget, (error, result) ->
 
+# form submission, call meteor method to update database.
 Template.edit_form.events "submit form": (e) ->
   e.preventDefault()
 
@@ -72,6 +75,7 @@ Template.edit_form.events "submit form": (e) ->
   Meteor.call "deleteInstrumentsInCollection", (err, response) ->
     console.log(response)
 
+ #route back to home, display popup message
   Router.go("home")
   n = noty({text: 'Your profile has been updated. Click on the map to mark your location!', type: 'success', layout:'center', timeout: 6500})
 
