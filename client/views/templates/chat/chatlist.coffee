@@ -1,12 +1,12 @@
 Template.chatlist.helpers
-  existingChatList: ->
+  existingChatList: -> #find people who are in your chatlist
     idList = Meteor.user().profile.chatPartners
     nameList = []
     for i in [0...idList.length]
       nameList.push(Meteor.users.findOne(idList[i]))
     nameList
 
-  notify: ->
+  notify: -> #determine if notification icon should appear or not
     thisId = this._id
     userId = Meteor.user()._id
     link = [userId,thisId].sort()
@@ -15,7 +15,7 @@ Template.chatlist.helpers
     sessionArray = Session.get("chatBoxArray")
     if userId == chatObject.user1
 
-      if _.contains(sessionArray, chatObject.user2)
+      if _.contains(sessionArray, chatObject.user2) #means window is open
         updateInfo =
           "notification1":0
         currentTarget = Chatrooms.findOne({link:link})
@@ -25,16 +25,16 @@ Template.chatlist.helpers
 
     else if userId == chatObject.user2
 
-      if _.contains(sessionArray, chatObject.user1)
+      if _.contains(sessionArray, chatObject.user1) #means window is open
         updateInfo =
           "notification2":0
         currentTarget = Chatrooms.findOne({link:link})
         Meteor.call 'updateChatrooms', updateInfo, currentTarget, (error, result) ->
       chatObject.notification2 == 1
 
-Template.chatlist.events "click .user-tab": (e) ->
+Template.chatlist.events "click .user-tab": (e) -> #click a user in list
 
-  if $(e.target).attr('class') == undefined || $(e.target).attr('class')[0]!= "g"
+  if $(e.target).attr('class') == undefined || $(e.target).attr('class')[0]!= "g" #make sure its not closing x button
     thisId = this._id
 
     sessionArray = Session.get("chatBoxArray")
@@ -48,7 +48,7 @@ Template.chatlist.events "click .user-tab": (e) ->
         sessionArray.push(thisId)
         Session.set("chatBoxArray", sessionArray)
     else
-  else
+  else #if click on x button, delete from session array
     thisId = this._id
     newList = _.reject(Meteor.user().profile.chatPartners, (eachOne) ->
       eachOne == thisId)
@@ -61,7 +61,7 @@ Template.chatlist.events "click .user-tab": (e) ->
       eachOne == thisId)
     Session.set("chatBoxArray", sessionArray)
 
-Template.chatlist.events "click .list-minimize-button": (e) ->
+Template.chatlist.events "click .list-minimize-button": (e) -> #animations for minimizing chat
   if $(".chatlisting").hasClass("panel-collapsed")
     $(".chatlisting").removeClass("panel-collapsed")
     $("#chatlist-box").find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus")
@@ -78,7 +78,7 @@ Template.chatlist.events "click .list-minimize-button": (e) ->
 Template.chatlist.events "click .chat-help": (e) ->
   alert "click on the 'chat' or 'message' button on a user's profile to initiate chat."
 
-Template.chatlist.rendered = ->
+Template.chatlist.rendered = -> #closing x button only appears when mouse is over user tab.
   $(".user-tab").hover (->
     $(this).find(".close-x").removeClass("hide")
   ), ->
